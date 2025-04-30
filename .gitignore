@@ -1,7 +1,7 @@
-/game_records/
-/node_modules/
-/static/
-/target/
 __pycache__/
+game_records/
+node_modules/
+static/*.js
+static/*.js.map
 libkombilo/*.o
 libkombilo/_libkombilo.so

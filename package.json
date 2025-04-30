@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@sabaki/sgf": "^3.4.7",
+    "tenuki": "^0.3.1"
+  },
+  "scripts": {
+    "build": "bun build --outdir static --sourcemap=linked --splitting frontend/index.ts",
+    "watch": "bun run build --watch"
+  }
+}
