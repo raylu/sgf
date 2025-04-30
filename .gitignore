@@ -1,2 +1,5 @@
 /game_records/
+/node_modules/
+/static/*.js
+/static/*.js.map
 /target/

@@ -5,14 +5,11 @@ use std::fs;
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
 	let app = axum::Router::new()
-		.route("/", get(root))
-		.nest_service("/sgf", tower_http::services::ServeDir::new("game_records"));
+		.fallback_service(tower_http::services::ServeFile::new("frontend/index.html"))
+		.nest_service("/sgf", tower_http::services::ServeDir::new("game_records"))
+		.nest_service("/static", tower_http::services::ServeDir::new("static"));
 	let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 	axum::serve(listener, app).await.unwrap();
-}
-
-async fn root() -> &'static str {
-	"Hello, World!"
 }
 
 fn info() {
