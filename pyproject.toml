@@ -1,0 +1,6 @@
+[project]
+name = "sgf"
+version = "0"
+dependencies = [
+    "pysgf",
+]
