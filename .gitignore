@@ -3,5 +3,5 @@
 /static/
 /target/
 __pycache__/
-/_libkombilo.so
 libkombilo/*.o
+libkombilo/_libkombilo.so

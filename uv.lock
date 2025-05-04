@@ -3,21 +3,6 @@ revision = 1
 requires-python = ">=3.13"
 
 [[package]]
-name = "pysgf"
-version = "0.9.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/4f/f9/69e89a008d39214ba15b832a0a8732d41e46200174fd081497284de48d02/pysgf-0.9.0.tar.gz", hash = "sha256:ff6a95e3891818a12e09af022aebec0bfaeca8617599f34e647a94ae02ee0303", size = 4960 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/57/ad/5398ec34cfe583b683604ad9559c403581184552978463c87b5a901454ef/pysgf-0.9.0-py3-none-any.whl", hash = "sha256:b72fb7d5ba730a6a49d456feb412d15082e0fa834cbccbed0c2f8d88a6f07f89", size = 5376 },
-]
-
-[[package]]
 name = "sgf"
 version = "0"
 source = { virtual = "." }
-dependencies = [
-    { name = "pysgf" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "pysgf" }]
