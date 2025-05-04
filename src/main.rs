@@ -23,14 +23,15 @@ async fn search() -> String {
 	for path in sgf_paths {
 		match parse_sgf(&path) {
 			Ok(game) => {
-				let black = match game[0].get_property("PB").unwrap() {
-					Prop::PB(st) => st,
-					_ => unreachable!(),
-				};
-				let white = match game[0].get_property("PW").unwrap() {
-					Prop::PW(st) => st,
-					_ => unreachable!(),
-				};
+				let mut black = "";
+				let mut white = "";
+				for prop in game[0].properties() {
+					match prop {
+						Prop::PB(name) => black = &name.text,
+						Prop::PW(name) => white = &name.text,
+						_ => {},
+					}
+				}
 				println!("black: {}, white: {}", black, white);
 			},
 			Err(e) => println!("Error parsing {}: {}", path, e),
