@@ -10,8 +10,21 @@ def main():
 	opts.sgfInDB = False
 	opts.processVariations = False
 	opts.professional_tag = 2 # tag if 1p-9p
-	gamelist = kombilo.GameList("game_records/kombilo.db", "", "", opts)
+	gamelist = kombilo.GameList('game_records/kombilo.db', '', '[[path]]/[[filename]]', opts)
+	print('have', gamelist.size_all(), 'games')
 
+	pattern = kombilo.Pattern(kombilo.CORNER_NE_PATTERN, 19, 4, 4, '*' * 12 + 'XXX*')
+	print(pattern.printPattern())
+	gamelist.search(pattern)
+	print('got', gamelist.numHits(), 'in', gamelist.size(), 'games')
+	for cont in gamelist.continuations:
+		cont: kombilo.Continuation
+		print(cont.label, 'has', cont.total())
+
+	for i in range(gamelist.num_hits):
+		print(gamelist.get_gameInfoStr(i), gamelist.get_resultsStr(i))
+
+def process(gamelist: kombilo.GameList) -> None:
 	root = pathlib.Path('game_records')
 	glists = kombilo.vectorGL()
 	gamelist.start_processing()
