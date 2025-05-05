@@ -37,6 +37,5 @@ namespace std {
 %include "search.h"
 %template(vectorMNC) std::vector<MoveNC>;
 %template(vectorM) std::vector<Move>;
-%template(vectorGL) std::vector<GameList* >;
-
-
+%template(vectorGL) std::vector<GameList *>;
+%template(vectorC) std::vector<Continuation *>;

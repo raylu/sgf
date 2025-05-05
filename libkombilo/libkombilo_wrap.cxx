@@ -3246,34 +3246,35 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_second_type swig_types[30]
 #define SWIGTYPE_p_size_type swig_types[31]
 #define SWIGTYPE_p_sqlite3 swig_types[32]
-#define SWIGTYPE_p_std__allocatorT_GameList_p_t swig_types[33]
-#define SWIGTYPE_p_std__allocatorT_MoveNC_t swig_types[34]
-#define SWIGTYPE_p_std__allocatorT_Move_t swig_types[35]
-#define SWIGTYPE_p_std__allocatorT_int_t swig_types[36]
-#define SWIGTYPE_p_std__allocatorT_std__pairT_int_int_t_t swig_types[37]
-#define SWIGTYPE_p_std__allocatorT_std__pairT_std__string_const_std__vectorT_int_t_t_t swig_types[38]
-#define SWIGTYPE_p_std__allocatorT_std__string_t swig_types[39]
-#define SWIGTYPE_p_std__allocatorT_unsigned_char_t swig_types[40]
-#define SWIGTYPE_p_std__invalid_argument swig_types[41]
-#define SWIGTYPE_p_std__lessT_std__string_t swig_types[42]
-#define SWIGTYPE_p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t swig_types[43]
-#define SWIGTYPE_p_std__mapT_std__string_std__vectorT_int_t_t swig_types[44]
-#define SWIGTYPE_p_std__pairT_int_int_t swig_types[45]
-#define SWIGTYPE_p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t swig_types[46]
-#define SWIGTYPE_p_std__vectorT_GameList_p_t swig_types[47]
-#define SWIGTYPE_p_std__vectorT_MoveNC_t swig_types[48]
-#define SWIGTYPE_p_std__vectorT_Move_t swig_types[49]
-#define SWIGTYPE_p_std__vectorT_Pattern_std__allocatorT_Pattern_t_t swig_types[50]
-#define SWIGTYPE_p_std__vectorT_Symmetries_std__allocatorT_Symmetries_t_t swig_types[51]
-#define SWIGTYPE_p_std__vectorT_algo_p_std__allocatorT_algo_p_t_t swig_types[52]
-#define SWIGTYPE_p_std__vectorT_int_t swig_types[53]
-#define SWIGTYPE_p_std__vectorT_std__pairT_int_int_t_t swig_types[54]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[55]
-#define SWIGTYPE_p_std__vectorT_unsigned_char_t swig_types[56]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[57]
-#define SWIGTYPE_p_value_type swig_types[58]
-static swig_type_info *swig_types[60];
-static swig_module_info swig_module = {swig_types, 59, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__allocatorT_Continuation_p_t swig_types[33]
+#define SWIGTYPE_p_std__allocatorT_GameList_p_t swig_types[34]
+#define SWIGTYPE_p_std__allocatorT_MoveNC_t swig_types[35]
+#define SWIGTYPE_p_std__allocatorT_Move_t swig_types[36]
+#define SWIGTYPE_p_std__allocatorT_int_t swig_types[37]
+#define SWIGTYPE_p_std__allocatorT_std__pairT_int_int_t_t swig_types[38]
+#define SWIGTYPE_p_std__allocatorT_std__pairT_std__string_const_std__vectorT_int_t_t_t swig_types[39]
+#define SWIGTYPE_p_std__allocatorT_std__string_t swig_types[40]
+#define SWIGTYPE_p_std__allocatorT_unsigned_char_t swig_types[41]
+#define SWIGTYPE_p_std__invalid_argument swig_types[42]
+#define SWIGTYPE_p_std__lessT_std__string_t swig_types[43]
+#define SWIGTYPE_p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t swig_types[44]
+#define SWIGTYPE_p_std__mapT_std__string_std__vectorT_int_t_t swig_types[45]
+#define SWIGTYPE_p_std__pairT_int_int_t swig_types[46]
+#define SWIGTYPE_p_std__vectorT_Continuation_p_t swig_types[47]
+#define SWIGTYPE_p_std__vectorT_GameList_p_t swig_types[48]
+#define SWIGTYPE_p_std__vectorT_MoveNC_t swig_types[49]
+#define SWIGTYPE_p_std__vectorT_Move_t swig_types[50]
+#define SWIGTYPE_p_std__vectorT_Pattern_std__allocatorT_Pattern_t_t swig_types[51]
+#define SWIGTYPE_p_std__vectorT_Symmetries_std__allocatorT_Symmetries_t_t swig_types[52]
+#define SWIGTYPE_p_std__vectorT_algo_p_std__allocatorT_algo_p_t_t swig_types[53]
+#define SWIGTYPE_p_std__vectorT_int_t swig_types[54]
+#define SWIGTYPE_p_std__vectorT_std__pairT_int_int_t_t swig_types[55]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[56]
+#define SWIGTYPE_p_std__vectorT_unsigned_char_t swig_types[57]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[58]
+#define SWIGTYPE_p_value_type swig_types[59]
+static swig_type_info *swig_types[61];
+static swig_module_info swig_module = {swig_types, 60, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -6529,6 +6530,115 @@ SWIGINTERN std::vector< GameList * >::iterator std_vector_Sl_GameList_Sm__Sg__er
 SWIGINTERN std::vector< GameList * >::iterator std_vector_Sl_GameList_Sm__Sg__erase__SWIG_1(std::vector< GameList * > *self,std::vector< GameList * >::iterator first,std::vector< GameList * >::iterator last){ return self->erase(first, last); }
 SWIGINTERN std::vector< GameList * >::iterator std_vector_Sl_GameList_Sm__Sg__insert__SWIG_0(std::vector< GameList * > *self,std::vector< GameList * >::iterator pos,std::vector< GameList * >::value_type x){ return self->insert(pos, x); }
 SWIGINTERN void std_vector_Sl_GameList_Sm__Sg__insert__SWIG_1(std::vector< GameList * > *self,std::vector< GameList * >::iterator pos,std::vector< GameList * >::size_type n,std::vector< GameList * >::value_type x){ self->insert(pos, n, x); }
+
+  namespace swig {
+    template <>  struct traits< Continuation > {
+      typedef pointer_category category;
+      static const char* type_name() { return"Continuation"; }
+    };
+  }
+
+
+      namespace swig {
+	template <>  struct traits<std::vector< Continuation*, std::allocator< Continuation * > > > {
+	  typedef value_category category;
+	  static const char* type_name() {
+	    return "std::vector<" "Continuation" " *," "std::allocator< Continuation * >" " >";
+	  }
+	};
+      }
+    
+SWIGINTERN swig::SwigPyIterator *std_vector_Sl_Continuation_Sm__Sg__iterator(std::vector< Continuation * > *self,PyObject **PYTHON_SELF){
+      return swig::make_output_iterator(self->begin(), self->begin(), self->end(), *PYTHON_SELF);
+    }
+SWIGINTERN bool std_vector_Sl_Continuation_Sm__Sg____nonzero__(std::vector< Continuation * > const *self){
+      return !(self->empty());
+    }
+SWIGINTERN bool std_vector_Sl_Continuation_Sm__Sg____bool__(std::vector< Continuation * > const *self){
+      return !(self->empty());
+    }
+SWIGINTERN std::vector< Continuation * >::size_type std_vector_Sl_Continuation_Sm__Sg____len__(std::vector< Continuation * > const *self){
+      return self->size();
+    }
+SWIGINTERN std::vector< Continuation *,std::allocator< Continuation * > > *std_vector_Sl_Continuation_Sm__Sg____getslice__(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i,std::vector< Continuation * >::difference_type j){
+      return swig::getslice(self, i, j, 1);
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____setslice____SWIG_0(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i,std::vector< Continuation * >::difference_type j){
+      swig::setslice(self, i, j, 1, std::vector< Continuation*,std::allocator< Continuation * > >());
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____setslice____SWIG_1(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i,std::vector< Continuation * >::difference_type j,std::vector< Continuation *,std::allocator< Continuation * > > const &v){
+      swig::setslice(self, i, j, 1, v);
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____delslice__(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i,std::vector< Continuation * >::difference_type j){
+      swig::delslice(self, i, j, 1);
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____delitem____SWIG_0(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i){
+      swig::erase(self, swig::getpos(self, i));
+    }
+SWIGINTERN std::vector< Continuation *,std::allocator< Continuation * > > *std_vector_Sl_Continuation_Sm__Sg____getitem____SWIG_0(std::vector< Continuation * > *self,PySliceObject *slice){
+      Py_ssize_t i, j, step;
+      if( !PySlice_Check(slice) ) {
+        SWIG_Error(SWIG_TypeError, "Slice object expected.");
+        return NULL;
+      }
+      PySlice_GetIndices(SWIGPY_SLICE_ARG(slice), (Py_ssize_t)self->size(), &i, &j, &step);
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type id = i;
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type jd = j;
+      return swig::getslice(self, id, jd, step);
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____setitem____SWIG_0(std::vector< Continuation * > *self,PySliceObject *slice,std::vector< Continuation *,std::allocator< Continuation * > > const &v){
+      Py_ssize_t i, j, step;
+      if( !PySlice_Check(slice) ) {
+        SWIG_Error(SWIG_TypeError, "Slice object expected.");
+        return;
+      }
+      PySlice_GetIndices(SWIGPY_SLICE_ARG(slice), (Py_ssize_t)self->size(), &i, &j, &step);
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type id = i;
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type jd = j;
+      swig::setslice(self, id, jd, step, v);
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____setitem____SWIG_1(std::vector< Continuation * > *self,PySliceObject *slice){
+      Py_ssize_t i, j, step;
+      if( !PySlice_Check(slice) ) {
+        SWIG_Error(SWIG_TypeError, "Slice object expected.");
+        return;
+      }
+      PySlice_GetIndices(SWIGPY_SLICE_ARG(slice), (Py_ssize_t)self->size(), &i, &j, &step);
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type id = i;
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type jd = j;
+      swig::delslice(self, id, jd, step);
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____delitem____SWIG_1(std::vector< Continuation * > *self,PySliceObject *slice){
+      Py_ssize_t i, j, step;
+      if( !PySlice_Check(slice) ) {
+        SWIG_Error(SWIG_TypeError, "Slice object expected.");
+        return;
+      }
+      PySlice_GetIndices(SWIGPY_SLICE_ARG(slice), (Py_ssize_t)self->size(), &i, &j, &step);
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type id = i;
+      std::vector< Continuation*,std::allocator< Continuation * > >::difference_type jd = j;
+      swig::delslice(self, id, jd, step);
+    }
+SWIGINTERN std::vector< Continuation * >::value_type std_vector_Sl_Continuation_Sm__Sg____getitem____SWIG_1(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i){
+      return *(swig::cgetpos(self, i));
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg____setitem____SWIG_2(std::vector< Continuation * > *self,std::vector< Continuation * >::difference_type i,std::vector< Continuation * >::value_type x){
+      *(swig::getpos(self,i)) = x;
+    }
+SWIGINTERN std::vector< Continuation * >::value_type std_vector_Sl_Continuation_Sm__Sg__pop(std::vector< Continuation * > *self){
+      if (self->size() == 0)
+	throw std::out_of_range("pop from empty container");
+      std::vector< Continuation*,std::allocator< Continuation * > >::value_type x = self->back();
+      self->pop_back();
+      return x;
+    }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg__append(std::vector< Continuation * > *self,std::vector< Continuation * >::value_type x){
+      self->push_back(x);
+    }
+SWIGINTERN std::vector< Continuation * >::iterator std_vector_Sl_Continuation_Sm__Sg__erase__SWIG_0(std::vector< Continuation * > *self,std::vector< Continuation * >::iterator pos){ return self->erase(pos); }
+SWIGINTERN std::vector< Continuation * >::iterator std_vector_Sl_Continuation_Sm__Sg__erase__SWIG_1(std::vector< Continuation * > *self,std::vector< Continuation * >::iterator first,std::vector< Continuation * >::iterator last){ return self->erase(first, last); }
+SWIGINTERN std::vector< Continuation * >::iterator std_vector_Sl_Continuation_Sm__Sg__insert__SWIG_0(std::vector< Continuation * > *self,std::vector< Continuation * >::iterator pos,std::vector< Continuation * >::value_type x){ return self->insert(pos, x); }
+SWIGINTERN void std_vector_Sl_Continuation_Sm__Sg__insert__SWIG_1(std::vector< Continuation * > *self,std::vector< Continuation * >::iterator pos,std::vector< Continuation * >::size_type n,std::vector< Continuation * >::value_type x){ self->insert(pos, n, x); }
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25419,7 +25529,7 @@ SWIGINTERN PyObject *_wrap_PatternList_continuations_set(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PatternList_continuations_set" "', argument " "1"" of type '" "PatternList *""'"); 
   }
   arg1 = reinterpret_cast< PatternList * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PatternList_continuations_set" "', argument " "2"" of type '" "std::vector< Continuation * > *""'"); 
   }
@@ -25449,7 +25559,7 @@ SWIGINTERN PyObject *_wrap_PatternList_continuations_get(PyObject *self, PyObjec
   }
   arg1 = reinterpret_cast< PatternList * >(argp1);
   result = (std::vector< Continuation * > *)& ((arg1)->continuations);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -27969,7 +28079,7 @@ SWIGINTERN PyObject *_wrap_GameList_continuations_set(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GameList_continuations_set" "', argument " "1"" of type '" "GameList *""'"); 
   }
   arg1 = reinterpret_cast< GameList * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GameList_continuations_set" "', argument " "2"" of type '" "std::vector< Continuation * > *""'"); 
   }
@@ -27999,7 +28109,7 @@ SWIGINTERN PyObject *_wrap_GameList_continuations_get(PyObject *self, PyObject *
   }
   arg1 = reinterpret_cast< GameList * >(argp1);
   result = (std::vector< Continuation * > *)& ((arg1)->continuations);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -37901,6 +38011,1850 @@ SWIGINTERN PyObject *vectorGL_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject 
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_vectorC_iterator(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  PyObject **arg2 = (PyObject **) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  swig::SwigPyIterator *result = 0 ;
+  
+  arg2 = &swig_obj[0];
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_iterator" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (swig::SwigPyIterator *)std_vector_Sl_Continuation_Sm__Sg__iterator(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_swig__SwigPyIterator, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___nonzero__(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  bool result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___nonzero__" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (bool)std_vector_Sl_Continuation_Sm__Sg____nonzero__((std::vector< Continuation * > const *)arg1);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___bool__(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  bool result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___bool__" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (bool)std_vector_Sl_Continuation_Sm__Sg____bool__((std::vector< Continuation * > const *)arg1);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___len__(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::size_type result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___len__" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = std_vector_Sl_Continuation_Sm__Sg____len__((std::vector< Continuation * > const *)arg1);
+  resultobj = SWIG_From_size_t(static_cast< size_t >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___getslice__(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  std::vector< Continuation * >::difference_type arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  ptrdiff_t val3 ;
+  int ecode3 = 0 ;
+  PyObject *swig_obj[3] ;
+  std::vector< Continuation *,std::allocator< Continuation * > > *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC___getslice__", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___getslice__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___getslice__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  ecode3 = SWIG_AsVal_ptrdiff_t(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "vectorC___getslice__" "', argument " "3"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg3 = static_cast< std::vector< Continuation * >::difference_type >(val3);
+  try {
+    result = (std::vector< Continuation *,std::allocator< Continuation * > > *)std_vector_Sl_Continuation_Sm__Sg____getslice__(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setslice____SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  std::vector< Continuation * >::difference_type arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  ptrdiff_t val3 ;
+  int ecode3 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___setslice__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___setslice__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  ecode3 = SWIG_AsVal_ptrdiff_t(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "vectorC___setslice__" "', argument " "3"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg3 = static_cast< std::vector< Continuation * >::difference_type >(val3);
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____setslice____SWIG_0(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setslice____SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  std::vector< Continuation * >::difference_type arg3 ;
+  std::vector< Continuation *,std::allocator< Continuation * > > *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  ptrdiff_t val3 ;
+  int ecode3 = 0 ;
+  int res4 = SWIG_OLDOBJ ;
+  
+  (void)self;
+  if ((nobjs < 4) || (nobjs > 4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___setslice__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___setslice__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  ecode3 = SWIG_AsVal_ptrdiff_t(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "vectorC___setslice__" "', argument " "3"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg3 = static_cast< std::vector< Continuation * >::difference_type >(val3);
+  {
+    std::vector< Continuation*,std::allocator< Continuation * > > *ptr = (std::vector< Continuation*,std::allocator< Continuation * > > *)0;
+    res4 = swig::asptr(swig_obj[3], &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "vectorC___setslice__" "', argument " "4"" of type '" "std::vector< Continuation *,std::allocator< Continuation * > > const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "vectorC___setslice__" "', argument " "4"" of type '" "std::vector< Continuation *,std::allocator< Continuation * > > const &""'"); 
+    }
+    arg4 = ptr;
+  }
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____setslice____SWIG_1(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),(std::vector< Continuation *,std::allocator< Continuation * > > const &)*arg4);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setslice__(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[5] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC___setslice__", 0, 4, argv))) SWIG_fail;
+  --argc;
+  if (argc == 3) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_ptrdiff_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_ptrdiff_t(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_vectorC___setslice____SWIG_0(self, argc, argv);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_ptrdiff_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_ptrdiff_t(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          int res = swig::asptr(argv[3], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_vectorC___setslice____SWIG_1(self, argc, argv);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC___setslice__'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::__setslice__(std::vector< Continuation * >::difference_type,std::vector< Continuation * >::difference_type)\n"
+    "    std::vector< Continuation * >::__setslice__(std::vector< Continuation * >::difference_type,std::vector< Continuation * >::difference_type,std::vector< Continuation *,std::allocator< Continuation * > > const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___delslice__(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  std::vector< Continuation * >::difference_type arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  ptrdiff_t val3 ;
+  int ecode3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC___delslice__", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___delslice__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___delslice__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  ecode3 = SWIG_AsVal_ptrdiff_t(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "vectorC___delslice__" "', argument " "3"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg3 = static_cast< std::vector< Continuation * >::difference_type >(val3);
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____delslice__(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___delitem____SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___delitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___delitem__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____delitem____SWIG_0(arg1,SWIG_STD_MOVE(arg2));
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___getitem____SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  PySliceObject *arg2 = (PySliceObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::vector< Continuation *,std::allocator< Continuation * > > *result = 0 ;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___getitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  {
+    if (!PySlice_Check(swig_obj[1])) {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC___getitem__" "', argument " "2"" of type '" "PySliceObject *""'");
+    }
+    arg2 = (PySliceObject *) swig_obj[1];
+  }
+  try {
+    result = (std::vector< Continuation *,std::allocator< Continuation * > > *)std_vector_Sl_Continuation_Sm__Sg____getitem____SWIG_0(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setitem____SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  PySliceObject *arg2 = (PySliceObject *) 0 ;
+  std::vector< Continuation *,std::allocator< Continuation * > > *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  
+  (void)self;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___setitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  {
+    if (!PySlice_Check(swig_obj[1])) {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC___setitem__" "', argument " "2"" of type '" "PySliceObject *""'");
+    }
+    arg2 = (PySliceObject *) swig_obj[1];
+  }
+  {
+    std::vector< Continuation*,std::allocator< Continuation * > > *ptr = (std::vector< Continuation*,std::allocator< Continuation * > > *)0;
+    res3 = swig::asptr(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "vectorC___setitem__" "', argument " "3"" of type '" "std::vector< Continuation *,std::allocator< Continuation * > > const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "vectorC___setitem__" "', argument " "3"" of type '" "std::vector< Continuation *,std::allocator< Continuation * > > const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____setitem____SWIG_0(arg1,arg2,(std::vector< Continuation *,std::allocator< Continuation * > > const &)*arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setitem____SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  PySliceObject *arg2 = (PySliceObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___setitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  {
+    if (!PySlice_Check(swig_obj[1])) {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC___setitem__" "', argument " "2"" of type '" "PySliceObject *""'");
+    }
+    arg2 = (PySliceObject *) swig_obj[1];
+  }
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____setitem____SWIG_1(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___delitem____SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  PySliceObject *arg2 = (PySliceObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___delitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  {
+    if (!PySlice_Check(swig_obj[1])) {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC___delitem__" "', argument " "2"" of type '" "PySliceObject *""'");
+    }
+    arg2 = (PySliceObject *) swig_obj[1];
+  }
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____delitem____SWIG_1(arg1,arg2);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  } catch(std::invalid_argument &_e) {
+    SWIG_exception_fail(SWIG_ValueError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___delitem__(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC___delitem__", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = PySlice_Check(argv[1]);
+      }
+      if (_v) {
+        return _wrap_vectorC___delitem____SWIG_1(self, argc, argv);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_ptrdiff_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_vectorC___delitem____SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC___delitem__'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::__delitem__(std::vector< Continuation * >::difference_type)\n"
+    "    std::vector< Continuation * >::__delitem__(PySliceObject *)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___getitem____SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  std::vector< Continuation * >::value_type result;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___getitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___getitem__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  try {
+    result = (std::vector< Continuation * >::value_type)std_vector_Sl_Continuation_Sm__Sg____getitem____SWIG_1(arg1,SWIG_STD_MOVE(arg2));
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Continuation, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___getitem__(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC___getitem__", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = PySlice_Check(argv[1]);
+      }
+      if (_v) {
+        return _wrap_vectorC___getitem____SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_ptrdiff_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_vectorC___getitem____SWIG_1(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC___getitem__'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::__getitem__(PySliceObject *)\n"
+    "    std::vector< Continuation * >::__getitem__(std::vector< Continuation * >::difference_type)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setitem____SWIG_2(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::difference_type arg2 ;
+  std::vector< Continuation * >::value_type arg3 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  ptrdiff_t val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC___setitem__" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_ptrdiff_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC___setitem__" "', argument " "2"" of type '" "std::vector< Continuation * >::difference_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::difference_type >(val2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "vectorC___setitem__" "', argument " "3"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg3 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp3);
+  try {
+    std_vector_Sl_Continuation_Sm__Sg____setitem____SWIG_2(arg1,SWIG_STD_MOVE(arg2),arg3);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC___setitem__(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[4] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC___setitem__", 0, 3, argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = PySlice_Check(argv[1]);
+      }
+      if (_v) {
+        return _wrap_vectorC___setitem____SWIG_1(self, argc, argv);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = PySlice_Check(argv[1]);
+      }
+      if (_v) {
+        int res = swig::asptr(argv[2], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_vectorC___setitem____SWIG_0(self, argc, argv);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_ptrdiff_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_Continuation, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_vectorC___setitem____SWIG_2(self, argc, argv);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC___setitem__'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::__setitem__(PySliceObject *,std::vector< Continuation *,std::allocator< Continuation * > > const &)\n"
+    "    std::vector< Continuation * >::__setitem__(PySliceObject *)\n"
+    "    std::vector< Continuation * >::__setitem__(std::vector< Continuation * >::difference_type,std::vector< Continuation * >::value_type)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_pop(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::value_type result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_pop" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  try {
+    result = (std::vector< Continuation * >::value_type)std_vector_Sl_Continuation_Sm__Sg__pop(arg1);
+  } catch(std::out_of_range &_e) {
+    SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Continuation, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_append(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::value_type arg2 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC_append", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_append" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "vectorC_append" "', argument " "2"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg2 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp2);
+  std_vector_Sl_Continuation_Sm__Sg__append(arg1,arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_vectorC__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *result = 0 ;
+  
+  (void)self;
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (std::vector< Continuation * > *)new std::vector< Continuation * >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_vectorC__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  std::vector< Continuation * > *result = 0 ;
+  
+  (void)self;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+    std::vector< Continuation*,std::allocator< Continuation * > > *ptr = (std::vector< Continuation*,std::allocator< Continuation * > > *)0;
+    res1 = swig::asptr(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_vectorC" "', argument " "1"" of type '" "std::vector< Continuation * > const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_vectorC" "', argument " "1"" of type '" "std::vector< Continuation * > const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (std::vector< Continuation * > *)new std::vector< Continuation * >((std::vector< Continuation * > const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_NEW |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_empty(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  bool result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_empty" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (bool)((std::vector< Continuation * > const *)arg1)->empty();
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_size(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::size_type result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_size" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = ((std::vector< Continuation * > const *)arg1)->size();
+  resultobj = SWIG_From_size_t(static_cast< size_t >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_swap(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * > *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC_swap", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_swap" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_std__vectorT_Continuation_p_t,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "vectorC_swap" "', argument " "2"" of type '" "std::vector< Continuation * > &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "vectorC_swap" "', argument " "2"" of type '" "std::vector< Continuation * > &""'"); 
+  }
+  arg2 = reinterpret_cast< std::vector< Continuation * > * >(argp2);
+  (arg1)->swap(*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_begin(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::iterator result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_begin" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (arg1)->begin();
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_end(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::iterator result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_end" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (arg1)->end();
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_rbegin(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::reverse_iterator result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_rbegin" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (arg1)->rbegin();
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::reverse_iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_rend(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::reverse_iterator result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_rend" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (arg1)->rend();
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::reverse_iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_clear(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_clear" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  (arg1)->clear();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_get_allocator(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  SwigValueWrapper< std::allocator< Continuation * > > result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_get_allocator" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = ((std::vector< Continuation * > const *)arg1)->get_allocator();
+  resultobj = SWIG_NewPointerObj((new std::vector< Continuation * >::allocator_type(result)), SWIGTYPE_p_std__allocatorT_Continuation_p_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_vectorC__SWIG_2(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * >::size_type arg1 ;
+  size_t val1 ;
+  int ecode1 = 0 ;
+  std::vector< Continuation * > *result = 0 ;
+  
+  (void)self;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_size_t(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_vectorC" "', argument " "1"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg1 = static_cast< std::vector< Continuation * >::size_type >(val1);
+  result = (std::vector< Continuation * > *)new std::vector< Continuation * >(SWIG_STD_MOVE(arg1));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_pop_back(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_pop_back" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  (arg1)->pop_back();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_resize__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::size_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_resize" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC_resize" "', argument " "2"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::size_type >(val2);
+  (arg1)->resize(SWIG_STD_MOVE(arg2));
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_erase__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::iterator arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  swig::SwigPyIterator *iter2 = 0 ;
+  int res2 ;
+  std::vector< Continuation * >::iterator result;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_erase" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], SWIG_as_voidptrptr(&iter2), swig::SwigPyIterator::descriptor(), 0);
+  if (!SWIG_IsOK(res2) || !iter2) {
+    SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_erase" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+  } else {
+    swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *iter_t = dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter2);
+    if (iter_t) {
+      arg2 = iter_t->get_current();
+    } else {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_erase" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+    }
+  }
+  result = std_vector_Sl_Continuation_Sm__Sg__erase__SWIG_0(arg1,SWIG_STD_MOVE(arg2));
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_erase__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::iterator arg2 ;
+  std::vector< Continuation * >::iterator arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  swig::SwigPyIterator *iter2 = 0 ;
+  int res2 ;
+  swig::SwigPyIterator *iter3 = 0 ;
+  int res3 ;
+  std::vector< Continuation * >::iterator result;
+  
+  (void)self;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_erase" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], SWIG_as_voidptrptr(&iter2), swig::SwigPyIterator::descriptor(), 0);
+  if (!SWIG_IsOK(res2) || !iter2) {
+    SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_erase" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+  } else {
+    swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *iter_t = dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter2);
+    if (iter_t) {
+      arg2 = iter_t->get_current();
+    } else {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_erase" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+    }
+  }
+  res3 = SWIG_ConvertPtr(swig_obj[2], SWIG_as_voidptrptr(&iter3), swig::SwigPyIterator::descriptor(), 0);
+  if (!SWIG_IsOK(res3) || !iter3) {
+    SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_erase" "', argument " "3"" of type '" "std::vector< Continuation * >::iterator""'");
+  } else {
+    swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *iter_t = dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter3);
+    if (iter_t) {
+      arg3 = iter_t->get_current();
+    } else {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_erase" "', argument " "3"" of type '" "std::vector< Continuation * >::iterator""'");
+    }
+  }
+  result = std_vector_Sl_Continuation_Sm__Sg__erase__SWIG_1(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_erase(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[4] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC_erase", 0, 3, argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      swig::SwigPyIterator *iter = 0;
+      int res = SWIG_ConvertPtr(argv[1], SWIG_as_voidptrptr(&iter), swig::SwigPyIterator::descriptor(), 0);
+      _v = (SWIG_IsOK(res) && iter && (dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter) != 0));
+      if (_v) {
+        return _wrap_vectorC_erase__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      swig::SwigPyIterator *iter = 0;
+      int res = SWIG_ConvertPtr(argv[1], SWIG_as_voidptrptr(&iter), swig::SwigPyIterator::descriptor(), 0);
+      _v = (SWIG_IsOK(res) && iter && (dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter) != 0));
+      if (_v) {
+        swig::SwigPyIterator *iter = 0;
+        int res = SWIG_ConvertPtr(argv[2], SWIG_as_voidptrptr(&iter), swig::SwigPyIterator::descriptor(), 0);
+        _v = (SWIG_IsOK(res) && iter && (dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter) != 0));
+        if (_v) {
+          return _wrap_vectorC_erase__SWIG_1(self, argc, argv);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC_erase'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::erase(std::vector< Continuation * >::iterator)\n"
+    "    std::vector< Continuation * >::erase(std::vector< Continuation * >::iterator,std::vector< Continuation * >::iterator)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_vectorC__SWIG_3(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * >::size_type arg1 ;
+  std::vector< Continuation * >::value_type arg2 = (std::vector< Continuation * >::value_type) 0 ;
+  size_t val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  std::vector< Continuation * > *result = 0 ;
+  
+  (void)self;
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_size_t(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_vectorC" "', argument " "1"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg1 = static_cast< std::vector< Continuation * >::size_type >(val1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_vectorC" "', argument " "2"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg2 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp2);
+  result = (std::vector< Continuation * > *)new std::vector< Continuation * >(SWIG_STD_MOVE(arg1),arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_vectorC(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_vectorC", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_new_vectorC__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_size_t(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      return _wrap_new_vectorC__SWIG_2(self, argc, argv);
+    }
+  }
+  if (argc == 1) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_vectorC__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_AsVal_size_t(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Continuation, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_vectorC__SWIG_3(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_vectorC'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::vector()\n"
+    "    std::vector< Continuation * >::vector(std::vector< Continuation * > const &)\n"
+    "    std::vector< Continuation * >::vector(std::vector< Continuation * >::size_type)\n"
+    "    std::vector< Continuation * >::vector(std::vector< Continuation * >::size_type,std::vector< Continuation * >::value_type)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_push_back(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::value_type arg2 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC_push_back", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_push_back" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "vectorC_push_back" "', argument " "2"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg2 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp2);
+  (arg1)->push_back(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_front(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::value_type result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_front" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (std::vector< Continuation * >::value_type)((std::vector< Continuation * > const *)arg1)->front();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Continuation, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_back(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::value_type result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_back" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = (std::vector< Continuation * >::value_type)((std::vector< Continuation * > const *)arg1)->back();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Continuation, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_assign(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::size_type arg2 ;
+  std::vector< Continuation * >::value_type arg3 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC_assign", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_assign" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC_assign" "', argument " "2"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::size_type >(val2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "vectorC_assign" "', argument " "3"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg3 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp3);
+  (arg1)->assign(SWIG_STD_MOVE(arg2),arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_resize__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::size_type arg2 ;
+  std::vector< Continuation * >::value_type arg3 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_resize" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC_resize" "', argument " "2"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::size_type >(val2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "vectorC_resize" "', argument " "3"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg3 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp3);
+  (arg1)->resize(SWIG_STD_MOVE(arg2),arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_resize(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[4] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC_resize", 0, 3, argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_vectorC_resize__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_Continuation, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_vectorC_resize__SWIG_1(self, argc, argv);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC_resize'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::resize(std::vector< Continuation * >::size_type)\n"
+    "    std::vector< Continuation * >::resize(std::vector< Continuation * >::size_type,std::vector< Continuation * >::value_type)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_insert__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::iterator arg2 ;
+  std::vector< Continuation * >::value_type arg3 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  swig::SwigPyIterator *iter2 = 0 ;
+  int res2 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  std::vector< Continuation * >::iterator result;
+  
+  (void)self;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_insert" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], SWIG_as_voidptrptr(&iter2), swig::SwigPyIterator::descriptor(), 0);
+  if (!SWIG_IsOK(res2) || !iter2) {
+    SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_insert" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+  } else {
+    swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *iter_t = dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter2);
+    if (iter_t) {
+      arg2 = iter_t->get_current();
+    } else {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_insert" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+    }
+  }
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "vectorC_insert" "', argument " "3"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg3 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp3);
+  result = std_vector_Sl_Continuation_Sm__Sg__insert__SWIG_0(arg1,SWIG_STD_MOVE(arg2),arg3);
+  resultobj = SWIG_NewPointerObj(swig::make_output_iterator(static_cast< const std::vector< Continuation * >::iterator & >(result)),
+    swig::SwigPyIterator::descriptor(),SWIG_POINTER_OWN);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_insert__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::iterator arg2 ;
+  std::vector< Continuation * >::size_type arg3 ;
+  std::vector< Continuation * >::value_type arg4 = (std::vector< Continuation * >::value_type) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  swig::SwigPyIterator *iter2 = 0 ;
+  int res2 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  
+  (void)self;
+  if ((nobjs < 4) || (nobjs > 4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_insert" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], SWIG_as_voidptrptr(&iter2), swig::SwigPyIterator::descriptor(), 0);
+  if (!SWIG_IsOK(res2) || !iter2) {
+    SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_insert" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+  } else {
+    swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *iter_t = dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter2);
+    if (iter_t) {
+      arg2 = iter_t->get_current();
+    } else {
+      SWIG_exception_fail(SWIG_ArgError(SWIG_TypeError), "in method '" "vectorC_insert" "', argument " "2"" of type '" "std::vector< Continuation * >::iterator""'");
+    }
+  }
+  ecode3 = SWIG_AsVal_size_t(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "vectorC_insert" "', argument " "3"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg3 = static_cast< std::vector< Continuation * >::size_type >(val3);
+  res4 = SWIG_ConvertPtr(swig_obj[3], &argp4,SWIGTYPE_p_Continuation, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "vectorC_insert" "', argument " "4"" of type '" "std::vector< Continuation * >::value_type""'"); 
+  }
+  arg4 = reinterpret_cast< std::vector< Continuation * >::value_type >(argp4);
+  std_vector_Sl_Continuation_Sm__Sg__insert__SWIG_1(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_insert(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[5] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "vectorC_insert", 0, 4, argv))) SWIG_fail;
+  --argc;
+  if (argc == 3) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      swig::SwigPyIterator *iter = 0;
+      int res = SWIG_ConvertPtr(argv[1], SWIG_as_voidptrptr(&iter), swig::SwigPyIterator::descriptor(), 0);
+      _v = (SWIG_IsOK(res) && iter && (dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter) != 0));
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_Continuation, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_vectorC_insert__SWIG_0(self, argc, argv);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    int res = swig::asptr(argv[0], (std::vector< Continuation*,std::allocator< Continuation * > >**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      swig::SwigPyIterator *iter = 0;
+      int res = SWIG_ConvertPtr(argv[1], SWIG_as_voidptrptr(&iter), swig::SwigPyIterator::descriptor(), 0);
+      _v = (SWIG_IsOK(res) && iter && (dynamic_cast<swig::SwigPyIterator_T<std::vector< Continuation * >::iterator > *>(iter) != 0));
+      if (_v) {
+        {
+          int res = SWIG_AsVal_size_t(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_Continuation, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_vectorC_insert__SWIG_1(self, argc, argv);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'vectorC_insert'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    std::vector< Continuation * >::insert(std::vector< Continuation * >::iterator,std::vector< Continuation * >::value_type)\n"
+    "    std::vector< Continuation * >::insert(std::vector< Continuation * >::iterator,std::vector< Continuation * >::size_type,std::vector< Continuation * >::value_type)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_reserve(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  std::vector< Continuation * >::size_type arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "vectorC_reserve", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_reserve" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "vectorC_reserve" "', argument " "2"" of type '" "std::vector< Continuation * >::size_type""'");
+  } 
+  arg2 = static_cast< std::vector< Continuation * >::size_type >(val2);
+  (arg1)->reserve(SWIG_STD_MOVE(arg2));
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_vectorC_capacity(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::vector< Continuation * >::size_type result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "vectorC_capacity" "', argument " "1"" of type '" "std::vector< Continuation * > const *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  result = ((std::vector< Continuation * > const *)arg1)->capacity();
+  resultobj = SWIG_From_size_t(static_cast< size_t >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_vectorC(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::vector< Continuation * > *arg1 = (std::vector< Continuation * > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_vectorC" "', argument " "1"" of type '" "std::vector< Continuation * > *""'"); 
+  }
+  arg1 = reinterpret_cast< std::vector< Continuation * > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *vectorC_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj = NULL;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_std__vectorT_Continuation_p_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *vectorC_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { "delete_SwigPyIterator", _wrap_delete_SwigPyIterator, METH_O, NULL},
 	 { "SwigPyIterator_value", _wrap_SwigPyIterator_value, METH_O, NULL},
@@ -38623,6 +40577,41 @@ static PyMethodDef SwigMethods[] = {
 	 { "delete_vectorGL", _wrap_delete_vectorGL, METH_O, NULL},
 	 { "vectorGL_swigregister", vectorGL_swigregister, METH_O, NULL},
 	 { "vectorGL_swiginit", vectorGL_swiginit, METH_VARARGS, NULL},
+	 { "vectorC_iterator", _wrap_vectorC_iterator, METH_O, NULL},
+	 { "vectorC___nonzero__", _wrap_vectorC___nonzero__, METH_O, NULL},
+	 { "vectorC___bool__", _wrap_vectorC___bool__, METH_O, NULL},
+	 { "vectorC___len__", _wrap_vectorC___len__, METH_O, NULL},
+	 { "vectorC___getslice__", _wrap_vectorC___getslice__, METH_VARARGS, NULL},
+	 { "vectorC___setslice__", _wrap_vectorC___setslice__, METH_VARARGS, NULL},
+	 { "vectorC___delslice__", _wrap_vectorC___delslice__, METH_VARARGS, NULL},
+	 { "vectorC___delitem__", _wrap_vectorC___delitem__, METH_VARARGS, NULL},
+	 { "vectorC___getitem__", _wrap_vectorC___getitem__, METH_VARARGS, NULL},
+	 { "vectorC___setitem__", _wrap_vectorC___setitem__, METH_VARARGS, NULL},
+	 { "vectorC_pop", _wrap_vectorC_pop, METH_O, NULL},
+	 { "vectorC_append", _wrap_vectorC_append, METH_VARARGS, NULL},
+	 { "vectorC_empty", _wrap_vectorC_empty, METH_O, NULL},
+	 { "vectorC_size", _wrap_vectorC_size, METH_O, NULL},
+	 { "vectorC_swap", _wrap_vectorC_swap, METH_VARARGS, NULL},
+	 { "vectorC_begin", _wrap_vectorC_begin, METH_O, NULL},
+	 { "vectorC_end", _wrap_vectorC_end, METH_O, NULL},
+	 { "vectorC_rbegin", _wrap_vectorC_rbegin, METH_O, NULL},
+	 { "vectorC_rend", _wrap_vectorC_rend, METH_O, NULL},
+	 { "vectorC_clear", _wrap_vectorC_clear, METH_O, NULL},
+	 { "vectorC_get_allocator", _wrap_vectorC_get_allocator, METH_O, NULL},
+	 { "vectorC_pop_back", _wrap_vectorC_pop_back, METH_O, NULL},
+	 { "vectorC_erase", _wrap_vectorC_erase, METH_VARARGS, NULL},
+	 { "new_vectorC", _wrap_new_vectorC, METH_VARARGS, NULL},
+	 { "vectorC_push_back", _wrap_vectorC_push_back, METH_VARARGS, NULL},
+	 { "vectorC_front", _wrap_vectorC_front, METH_O, NULL},
+	 { "vectorC_back", _wrap_vectorC_back, METH_O, NULL},
+	 { "vectorC_assign", _wrap_vectorC_assign, METH_VARARGS, NULL},
+	 { "vectorC_resize", _wrap_vectorC_resize, METH_VARARGS, NULL},
+	 { "vectorC_insert", _wrap_vectorC_insert, METH_VARARGS, NULL},
+	 { "vectorC_reserve", _wrap_vectorC_reserve, METH_VARARGS, NULL},
+	 { "vectorC_capacity", _wrap_vectorC_capacity, METH_O, NULL},
+	 { "delete_vectorC", _wrap_delete_vectorC, METH_O, NULL},
+	 { "vectorC_swigregister", vectorC_swigregister, METH_O, NULL},
+	 { "vectorC_swiginit", vectorC_swiginit, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -38636,7 +40625,7 @@ static void *_p_SnapshotVectorTo_p_std__vectorT_unsigned_char_t(void *x, int *SW
     return (void *)((std::vector< unsigned char,std::allocator< unsigned char > > *)  ((SnapshotVector *) x));
 }
 static swig_type_info _swigt__p_BoardError = {"_p_BoardError", "BoardError *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Continuation = {"_p_Continuation", "Continuation *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Continuation = {"_p_Continuation", "std::vector< Continuation * >::value_type|Continuation *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Cursor = {"_p_Cursor", "Cursor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DBError = {"_p_DBError", "DBError *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ExtendedMoveNumber = {"_p_ExtendedMoveNumber", "ExtendedMoveNumber *", 0, 0, (void*)0, 0};
@@ -38668,6 +40657,7 @@ static swig_type_info _swigt__p_p_PyObject = {"_p_p_PyObject", "PyObject **", 0,
 static swig_type_info _swigt__p_second_type = {"_p_second_type", "second_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_size_type = {"_p_size_type", "size_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_sqlite3 = {"_p_sqlite3", "sqlite3 *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__allocatorT_Continuation_p_t = {"_p_std__allocatorT_Continuation_p_t", "std::vector< Continuation * >::allocator_type *|std::allocator< Continuation * > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__allocatorT_GameList_p_t = {"_p_std__allocatorT_GameList_p_t", "std::vector< GameList * >::allocator_type *|std::allocator< GameList * > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__allocatorT_MoveNC_t = {"_p_std__allocatorT_MoveNC_t", "std::vector< MoveNC >::allocator_type *|std::allocator< MoveNC > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__allocatorT_Move_t = {"_p_std__allocatorT_Move_t", "std::vector< Move >::allocator_type *|std::allocator< Move > *", 0, 0, (void*)0, 0};
@@ -38681,7 +40671,7 @@ static swig_type_info _swigt__p_std__lessT_std__string_t = {"_p_std__lessT_std__
 static swig_type_info _swigt__p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t = {"_p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t", "std::map< std::string,PropValue,std::less< std::string >,std::allocator< std::pair< std::string const,PropValue > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__mapT_std__string_std__vectorT_int_t_t = {"_p_std__mapT_std__string_std__vectorT_int_t_t", "std::map< std::string,std::vector< int,std::allocator< int > > > *|std::map< std::string,std::vector< int,std::allocator< int > >,std::less< std::string >,std::allocator< std::pair< std::string const,std::vector< int,std::allocator< int > > > > > *|std::map< std::string,std::vector< int > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__pairT_int_int_t = {"_p_std__pairT_int_int_t", "p_cc *|std::pair< int,int > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t = {"_p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t", "std::vector< Continuation *,std::allocator< Continuation * > > *|std::vector< Continuation * > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__vectorT_Continuation_p_t = {"_p_std__vectorT_Continuation_p_t", "std::vector< Continuation *,std::allocator< Continuation * > > *|std::vector< Continuation * > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_GameList_p_t = {"_p_std__vectorT_GameList_p_t", "std::vector< GameList *,std::allocator< GameList * > > *|std::vector< GameList * > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_MoveNC_t = {"_p_std__vectorT_MoveNC_t", "std::vector< MoveNC,std::allocator< MoveNC > > *|std::vector< MoveNC > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_Move_t = {"_p_std__vectorT_Move_t", "std::vector< Move,std::allocator< Move > > *|std::vector< Move > *", 0, 0, (void*)0, 0};
@@ -38729,6 +40719,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_second_type,
   &_swigt__p_size_type,
   &_swigt__p_sqlite3,
+  &_swigt__p_std__allocatorT_Continuation_p_t,
   &_swigt__p_std__allocatorT_GameList_p_t,
   &_swigt__p_std__allocatorT_MoveNC_t,
   &_swigt__p_std__allocatorT_Move_t,
@@ -38742,7 +40733,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t,
   &_swigt__p_std__mapT_std__string_std__vectorT_int_t_t,
   &_swigt__p_std__pairT_int_int_t,
-  &_swigt__p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t,
+  &_swigt__p_std__vectorT_Continuation_p_t,
   &_swigt__p_std__vectorT_GameList_p_t,
   &_swigt__p_std__vectorT_MoveNC_t,
   &_swigt__p_std__vectorT_Move_t,
@@ -38790,6 +40781,7 @@ static swig_cast_info _swigc__p_p_PyObject[] = {  {&_swigt__p_p_PyObject, 0, 0, 
 static swig_cast_info _swigc__p_second_type[] = {  {&_swigt__p_second_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_size_type[] = {  {&_swigt__p_size_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_sqlite3[] = {  {&_swigt__p_sqlite3, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__allocatorT_Continuation_p_t[] = {  {&_swigt__p_std__allocatorT_Continuation_p_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__allocatorT_GameList_p_t[] = {  {&_swigt__p_std__allocatorT_GameList_p_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__allocatorT_MoveNC_t[] = {  {&_swigt__p_std__allocatorT_MoveNC_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__allocatorT_Move_t[] = {  {&_swigt__p_std__allocatorT_Move_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -38803,7 +40795,7 @@ static swig_cast_info _swigc__p_std__lessT_std__string_t[] = {  {&_swigt__p_std_
 static swig_cast_info _swigc__p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t[] = {  {&_swigt__p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__mapT_std__string_std__vectorT_int_t_t[] = {  {&_swigt__p_std__mapT_std__string_std__vectorT_int_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__pairT_int_int_t[] = {  {&_swigt__p_std__pairT_int_int_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t[] = {  {&_swigt__p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_Continuation_p_t[] = {  {&_swigt__p_std__vectorT_Continuation_p_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_GameList_p_t[] = {  {&_swigt__p_std__vectorT_GameList_p_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_MoveNC_t[] = {  {&_swigt__p_std__vectorT_MoveNC_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_Move_t[] = {  {&_swigt__p_std__vectorT_Move_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -38851,6 +40843,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_second_type,
   _swigc__p_size_type,
   _swigc__p_sqlite3,
+  _swigc__p_std__allocatorT_Continuation_p_t,
   _swigc__p_std__allocatorT_GameList_p_t,
   _swigc__p_std__allocatorT_MoveNC_t,
   _swigc__p_std__allocatorT_Move_t,
@@ -38864,7 +40857,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__mapT_std__string_PropValue_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_PropValue_t_t_t,
   _swigc__p_std__mapT_std__string_std__vectorT_int_t_t,
   _swigc__p_std__pairT_int_int_t,
-  _swigc__p_std__vectorT_Continuation_p_std__allocatorT_Continuation_p_t_t,
+  _swigc__p_std__vectorT_Continuation_p_t,
   _swigc__p_std__vectorT_GameList_p_t,
   _swigc__p_std__vectorT_MoveNC_t,
   _swigc__p_std__vectorT_Move_t,
