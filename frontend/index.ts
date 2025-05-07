@@ -1,4 +1,6 @@
+// @ts-ignore
 import * as tenuki from 'tenuki';
+// @ts-ignore
 import * as sgf from '@sabaki/sgf';
 
 (async () => {

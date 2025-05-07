@@ -8,7 +8,6 @@ import sys
 import typing
 
 from pigwig import PigWig, Response
-from pigwig.exceptions import HTTPException
 
 if typing.TYPE_CHECKING:
 	from pigwig import Request
@@ -18,7 +17,7 @@ def root(request: Request) -> Response:
 	return Response(pathlib.Path('frontend/index.html').read_bytes(), content_type='text/html; charset=utf-8')
 
 def search_route(request: Request) -> Response:
-	return 'hi'
+	return Response('hi')
 
 def sgf(request, file_path: str) -> Response:
 	try:
