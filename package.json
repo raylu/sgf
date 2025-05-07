@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@lit/task": "^1.0.2",
     "@sabaki/sgf": "^3.4.7",
+    "lit": "^3.3.0",
     "tenuki": "^0.3.1"
   },
   "scripts": {

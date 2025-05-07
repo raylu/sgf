@@ -15,5 +15,8 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"noPropertyAccessFromIndexSignature": true,
+		// https://lit.dev/docs/components/decorators/#decorators-typescript
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false,
 	}
 }
