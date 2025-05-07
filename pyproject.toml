@@ -2,5 +2,6 @@
 name = "sgf"
 version = "0"
 dependencies = [
-    "pigwig>=0.8.2",
+    "pigwig>=0.8.3",
+    "waitress>=3.0.2",
 ]

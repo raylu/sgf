@@ -47,10 +47,8 @@ app = PigWig(routes)
 
 if __name__ == '__main__':
 	mimetypes.add_type('application/json', '.map')
-	port = 8000
 	if len(sys.argv) == 2: # production
-		import fastwsgi
-		port = int(sys.argv[1])
-		fastwsgi.run(app, '127.0.0.1', port)
+		import waitress
+		waitress.serve(app, listen=sys.argv[1])
 	else: # dev
 		app.main()

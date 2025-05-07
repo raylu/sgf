@@ -4,10 +4,11 @@ requires-python = ">=3.13"
 
 [[package]]
 name = "pigwig"
-version = "0.8.2"
+version = "0.8.3"
 source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/91/99/47fbd2ef4c7328a80ff26cacb08df03a079a899dbd6ada6cbc02b0532c39/pigwig-0.8.3.tar.gz", hash = "sha256:857bd98d7a8329d2ee1e9e32f3ad04a874c763baa1126a0c004ab6bdc74beead", size = 14020 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/2e/7ea76b8857549cdb0d6354547b99928d988b4c022d0cce5075f266b34a84/pigwig-0.8.2-py3-none-any.whl", hash = "sha256:268a6434e51110950d8c5dcb69cdc95b73a1647e1f7b680b2773492ba69d7264", size = 16006 },
+    { url = "https://files.pythonhosted.org/packages/8b/af/5442351428d0237e0937deac123f8075dcbf9736d1f88de236e2822948ba/pigwig-0.8.3-py3-none-any.whl", hash = "sha256:3b55fc2230c2eaeb834c2edee5e9c5cf8dba0e6fc65d4dd24b264b0d1a95e276", size = 16041 },
 ]
 
 [[package]]
@@ -16,7 +17,20 @@ version = "0"
 source = { virtual = "." }
 dependencies = [
     { name = "pigwig" },
+    { name = "waitress" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pigwig", specifier = ">=0.8.2" }]
+requires-dist = [
+    { name = "pigwig", specifier = ">=0.8.3" },
+    { name = "waitress", specifier = ">=3.0.2" },
+]
+
+[[package]]
+name = "waitress"
+version = "3.0.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bf/cb/04ddb054f45faa306a230769e868c28b8065ea196891f09004ebace5b184/waitress-3.0.2.tar.gz", hash = "sha256:682aaaf2af0c44ada4abfb70ded36393f0e307f4ab9456a215ce0020baefc31f", size = 179901 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8d/57/a27182528c90ef38d82b636a11f606b0cbb0e17588ed205435f8affe3368/waitress-3.0.2-py3-none-any.whl", hash = "sha256:c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e", size = 56232 },
+]
