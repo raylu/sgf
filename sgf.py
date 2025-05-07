@@ -13,7 +13,7 @@ if typing.TYPE_CHECKING:
 	from pigwig import Request
 	from pigwig.routes import RouteDefinition
 
-def root(request: Request) -> Response:
+def root(request: Request, catchall: str | None = None) -> Response:
 	return Response(pathlib.Path('frontend/index.html').read_bytes(), content_type='text/html; charset=utf-8')
 
 def search_route(request: Request) -> Response:
@@ -37,6 +37,7 @@ def static(request, file_path: str) -> Response:
 
 routes: RouteDefinition = [
 	('GET', '/', root),
+	('GET', '/<path:catchall>', root),
 	('GET', '/search', search_route),
 	('GET', '/sgf/<path:file_path>', sgf),
 	('GET', '/static/<path:file_path>', static),
