@@ -13,13 +13,12 @@ function sgf_to_coords(move: string): [number, number] {
 	return [parseInt(move[1], 36) - 10, parseInt(move[0], 36) - 10];
 }
 
-
-const navigate = new Event('navigate', {composed: true});
-
 @customElement('game-record')
 export class GameRecord extends LitElement {
 	@property({type: String})
 	path = '';
+	@property({type: Number})
+	moveNum: number | null = null;
 
 	@state()
 	moves: object[] = [];
@@ -34,13 +33,13 @@ export class GameRecord extends LitElement {
 		},
 	});
 
-	private _navigate(event: Event) {
-		event.preventDefault();
-		history.pushState({}, '', (event.target as HTMLAnchorElement).href);
-		this.dispatchEvent(navigate);
+	protected createRenderRoot() {
+		const root = super.createRenderRoot();
+		root.addEventListener('click', this._moveClicked);
+		return root;
 	}
 
-	render() {
+	protected render() {
 		return this._readTask.render({
 			pending: () => html`loading...`,
 			complete: this._renderSGF,
@@ -48,30 +47,35 @@ export class GameRecord extends LitElement {
 		});
 	}
 
-	private _renderSGF(node: any) {
+	private _renderSGF = (node: any) => {
 		const tenukiEl = document.createElement('div');
 		tenukiEl.classList.add('tenuki-board');
 		const game = new tenuki.Game({'element': tenukiEl});
+		const moves = [];
 
 		let moveNum = 0;
+		let player = 'B';
 		while ((node = node.children[0])) {
-			let move;
-			const moveEl = document.createElement('div');
-			moveEl.dataset['num'] = moveNum.toString();
-			if (game.currentPlayer() == 'black') {
-				if (!node.data['B']) throw new Error(`expecting black move, got ${node.data}`);
-				[move] = node.data.B;
-				moveEl.textContent = `B ${moveNum + 1}`;
-			} else {
-				if (!node.data['W']) throw new Error(`expecting white move, got ${node.data}`);
-				[move] = node.data.W;
-				moveEl.textContent = `W ${moveNum + 1}`;
-			}
-			const [y, x] = sgf_to_coords(move);
-			game.playAt(y, x);
 			moveNum++;
+			let [move] = node.data[player];
+			moves.push(html`<div data-num=${moveNum}>${player} ${moveNum}</div>`);
+			if (this.moveNum === null || moveNum <= this.moveNum) {
+				const [y, x] = sgf_to_coords(move);
+				game.playAt(y, x);
+			}
+			if (player === 'B')
+				player = 'W';
+			else
+				player = 'B';
 		}
-		return tenukiEl;
+		const movesT = html`<div>${moves}</div>`
+		return [tenukiEl, movesT];
+	}
+
+	private _moveClicked = (e: Event) => {
+		const numStr = (e.target as HTMLDivElement).dataset['num'];
+		if (numStr === undefined) return;
+		this.moveNum = parseInt(numStr);
 	}
 
 	static styles = [globalCSS, tenukiCSS, css`
