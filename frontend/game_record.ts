@@ -58,7 +58,7 @@ export class GameRecord extends LitElement {
 		while ((node = node.children[0])) {
 			moveNum++;
 			let [move] = node.data[player];
-			moves.push(html`<div data-num=${moveNum}>${player} ${moveNum}</div>`);
+			moves.push(html`<div data-num="${moveNum}" class="${player.toLowerCase()} ${moveNum === this.moveNum ? 'active' : ''}">${moveNum}</div>`);
 			if (this.moveNum === null || moveNum <= this.moveNum) {
 				const [y, x] = sgf_to_coords(move);
 				game.playAt(y, x);
@@ -68,7 +68,7 @@ export class GameRecord extends LitElement {
 			else
 				player = 'B';
 		}
-		const movesT = html`<div>${moves}</div>`
+		const movesT = html`<div class="moves">${moves}</div>`
 		return [tenukiEl, movesT];
 	}
 
@@ -79,9 +79,38 @@ export class GameRecord extends LitElement {
 	}
 
 	static styles = [globalCSS, tenukiCSS, css`
-		a {
-			color: #58a;
-			text-decoration: none;
+		:host {
+			color: #eee;
+			font-family: sans-serif;
+		}
+		.tenuki-board {
+			margin: 1em auto;
+		}
+		.moves {
+			background-color: #666;
+			padding: 1em;
+		}
+		.moves > div {
+			display: inline-block;
+			margin: 2px;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 24px;
+			font-size: 12px;
+			cursor: pointer;
+		}
+		.moves > div.b {
+			background-color: #222;
+			color: #ddd;
+		}
+		.moves > div.w {
+			background-color: #ddd;
+			color: #222;
+		}
+		.moves > div.active {
+			box-shadow: 0 0 1px 3px #157;
 		}
 	`];
 }
