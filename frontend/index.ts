@@ -2,6 +2,7 @@ import {html, css, LitElement} from 'lit';
 import {customElement, state} from 'lit/decorators.js';
 
 import './game_record';
+import './pattern';
 import globalCSS from './style';
 
 enum Page {
@@ -55,6 +56,7 @@ class SGFApp extends LitElement {
 			case Page.Root: {
 				return html`
 					<a href="/game/2024 KifuDepot Games/2024-08-02 張羽喬 vs Liu Yifang" @click="${this._navigate}">game</a>
+					<pattern-search></pattern-search>
 				`;
 			}
 			case Page.Game:
@@ -77,6 +79,9 @@ class SGFApp extends LitElement {
 		a {
 			color: #58a;
 			text-decoration: none;
+		}
+		pattern-search {
+			margin: 1em auto;
 		}
 	`];
 }
