@@ -2,23 +2,21 @@
 
 import enum
 import pathlib
+import typing
 
 import kombilo
 
-def main():
+def search(pattern_str: str) -> typing.Iterator[tuple[str, str]]:
 	gamelist = get_gamelist()
-	print('have', gamelist.size_all(), 'games')
-
-	pattern = kombilo.Pattern(kombilo.CORNER_NE_PATTERN, 19, 4, 4, '*' * 12 + 'XXX*')
+	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
 	print(pattern.printPattern())
 	gamelist.search(pattern)
 	print('got', gamelist.numHits(), 'in', gamelist.size(), 'games')
-	for cont in gamelist.continuations:
-		cont: kombilo.Continuation
-		print(cont.label, 'has', cont.total())
-
+	# for cont in gamelist.continuations:
+	# 	cont: kombilo.Continuation
+	# 	print(cont.label, 'has', cont.total())
 	for i in range(gamelist.num_hits):
-		print(gamelist.get_gameInfoStr(i), gamelist.get_resultsStr(i))
+		yield gamelist.get_gameInfoStr(i), repr(gamelist.get_resultsStr(i))
 
 def get_gamelist() -> kombilo.GameList:
 	opts = kombilo.ProcessOptions()
@@ -55,4 +53,5 @@ class PROCESS_RESULT(enum.IntFlag):
 	INDEX_OUT_OF_RANGE = kombilo.INDEX_OUT_OF_RANGE
 
 if __name__ == "__main__":
-    main()
+	for path, result in search('*' * (19 * 19)):
+		print(path, result)

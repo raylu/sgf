@@ -2,7 +2,7 @@ import {html, css, LitElement} from 'lit';
 import {customElement, state} from 'lit/decorators.js';
 
 import './game_record';
-import './pattern';
+import {PatternSearch} from './pattern';
 import globalCSS from './style';
 
 enum Page {
@@ -14,6 +14,8 @@ enum Page {
 class SGFApp extends LitElement {
 	@state()
 	page = Page.Root;
+	@state()
+	patternSearch = new PatternSearch();
 	@state()
 	gamePath = '';
 
@@ -51,12 +53,13 @@ class SGFApp extends LitElement {
 		});
 	}
 
-	render() {
+	protected render() {
 		switch (this.page) {
 			case Page.Root: {
 				return html`
 					<a href="/game/2024 KifuDepot Games/2024-08-02 張羽喬 vs Liu Yifang" @click="${this._navigate}">game</a>
-					<pattern-search></pattern-search>
+					${this.patternSearch}
+					<button @click="${this._search}">search</button>
 				`;
 			}
 			case Page.Game:
@@ -65,6 +68,11 @@ class SGFApp extends LitElement {
 					<game-record path="${this.gamePath}"></game-record>
 				`;
 		}
+	}
+
+	private _search = async () => {
+		const pattern = this.patternSearch.pattern.join('');
+		await this._post_json('/api/search', pattern);
 	}
 
 	static styles = [globalCSS, css`

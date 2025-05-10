@@ -23,7 +23,8 @@ def players(request: Request) -> Response:
 	return Response.json([gamelist.plEntry(i) for i in range(gamelist.plSize())])
 
 def search_route(request: Request) -> Response:
-	return Response('hi')
+	pattern = typing.cast(str, request.body)
+	return Response.json(list(search.search(pattern)))
 
 def sgf(request: Request, file_path: str) -> Response:
 	try:
@@ -45,7 +46,7 @@ routes: RouteDefinition = [
 	('GET', '/', root),
 	('GET', '/<path:catchall>', root),
 	('GET', '/api/players', players),
-	('GET', '/api/search', search_route),
+	('POST', '/api/search', search_route),
 	('GET', '/sgf/<path:file_path>', sgf),
 	('GET', '/static/<path:file_path>', static),
 ]
