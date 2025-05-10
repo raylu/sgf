@@ -9,14 +9,13 @@ import kombilo
 def search(pattern_str: str) -> typing.Iterator[tuple[str, str]]:
 	gamelist = get_gamelist()
 	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
-	print(pattern.printPattern())
 	gamelist.search(pattern)
-	print('got', gamelist.numHits(), 'in', gamelist.size(), 'games')
 	# for cont in gamelist.continuations:
 	# 	cont: kombilo.Continuation
 	# 	print(cont.label, 'has', cont.total())
 	for i in range(gamelist.num_hits):
-		yield gamelist.get_gameInfoStr(i), repr(gamelist.get_resultsStr(i))
+		path :str = gamelist.get_gameInfoStr(i).removeprefix('game_records/').removesuffix('.sgf')
+		yield path, gamelist.get_resultsStr(i)
 
 def get_gamelist() -> kombilo.GameList:
 	opts = kombilo.ProcessOptions()

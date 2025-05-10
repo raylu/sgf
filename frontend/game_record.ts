@@ -24,7 +24,7 @@ export class GameRecord extends LitElement {
 	moves: object[] = [];
 
 	private _readTask = new Task(this, {
-		args: () => [this.path],
+		args: () => [this.path] as const,
 		task: async ([path], {signal}): Promise<any> => {
 			const sgfContents = await fetch(`/sgf/${path}.sgf`, {signal});
 			if (sgfContents.status !== 200)

@@ -1,3 +1,4 @@
+import {Task} from '@lit/task';
 import {html, css, LitElement} from 'lit';
 import {customElement, state} from 'lit/decorators.js';
 
@@ -16,6 +17,8 @@ class SGFApp extends LitElement {
 	page = Page.Root;
 	@state()
 	patternSearch = new PatternSearch();
+	@state()
+	searchPattern = this.patternSearch.pattern.join('');
 	@state()
 	gamePath = '';
 
@@ -45,21 +48,32 @@ class SGFApp extends LitElement {
 		this._handleUrlChange();
 	}
 
-	private _post_json(path: RequestInfo, body: any): Promise<Response> {
+	private _post_json(path: RequestInfo, body: any, signal: AbortSignal): Promise<Response> {
 		return fetch(path, {
 			'method': 'POST',
 			'headers': {'Content-Type': 'application/json'},
 			'body': JSON.stringify(body),
+			signal,
 		});
 	}
 
 	protected render() {
 		switch (this.page) {
 			case Page.Root: {
+				const searchResults = this._searchTask.render({
+					pending: () => html`searching...`,
+					complete: (results) => html`
+						${results.map(([path, result]) => {
+							return html`<div><a href="game/${path}" @click="${this._navigate}">${path}</a> ${result}</div>`;
+						})}
+					`,
+					error: (e) => html`${e}`
+				});
 				return html`
 					<a href="/game/2024 KifuDepot Games/2024-08-02 張羽喬 vs Liu Yifang" @click="${this._navigate}">game</a>
 					${this.patternSearch}
-					<button @click="${this._search}">search</button>
+					<button @click="${this._searchClicked}">search</button>
+					${searchResults}
 				`;
 			}
 			case Page.Game:
@@ -70,10 +84,19 @@ class SGFApp extends LitElement {
 		}
 	}
 
-	private _search = async () => {
-		const pattern = this.patternSearch.pattern.join('');
-		await this._post_json('/api/search', pattern);
+	private _searchClicked = async () => {
+		this.searchPattern = this.patternSearch.pattern.join('');
 	}
+
+	private _searchTask = new Task(this, {
+		args: () => [this.searchPattern] as const,
+		task: async ([pattern], {signal}): Promise<string[][]> => {
+			const results = await this._post_json('/api/search', pattern, signal);
+			if (results.status !== 200)
+				throw new Error(`${results.status} ${results.statusText}`);
+			return results.json();
+		},
+	});
 
 	static styles = [globalCSS, css`
 		:host {
