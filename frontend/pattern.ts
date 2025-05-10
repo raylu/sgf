@@ -12,13 +12,22 @@ export class PatternSearch extends LitElement {
 	activeTool = '';
 
 	protected render() {
+		const tools = [
+			['*', 'any'],
+			['.', 'empty'],
+			['X', 'black'],
+			['O', 'white'],
+			['x', 'black or empty'],
+			['o', 'white or empty'],
+		];
 		return html`
 			<div class="board" @click="${this._boardClicked}">
 				${this.pattern.map((sym, i) => html`<div class="point" data-i="${i}">${sym}</div>`)}
 			</div>
 			<div class="palette" @click="${this._paletteClicked}">
-				<div data-sym="X">black</div>
-				<div data-sym="O">white</div>
+				${tools.map(([sym, desc]) => { return html`
+					<div data-sym="${sym}" class="${this.activeTool === sym ? 'active' : ''}">${desc}</div>
+				`})}
 			</div>
 		`;
 	}
@@ -63,6 +72,9 @@ export class PatternSearch extends LitElement {
 		}
 		.palette > div {
 			cursor: pointer;
+		}
+		.palette > div.active {
+			background-color: #157;
 		}
 	`];
 }

@@ -70,7 +70,6 @@ class SGFApp extends LitElement {
 					error: (e) => html`${e}`
 				});
 				return html`
-					<a href="/game/2024 KifuDepot Games/2024-08-02 張羽喬 vs Liu Yifang" @click="${this._navigate}">game</a>
 					${this.patternSearch}
 					<button @click="${this._searchClicked}">search</button>
 					${searchResults}
