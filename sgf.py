@@ -9,7 +9,7 @@ import typing
 
 from pigwig import PigWig, Response
 
-import search
+import db
 
 if typing.TYPE_CHECKING:
 	from pigwig import Request
@@ -19,12 +19,12 @@ def root(request: Request, catchall: str | None = None) -> Response:
 	return Response(pathlib.Path('frontend/index.html').read_bytes(), content_type='text/html; charset=utf-8')
 
 def players(request: Request) -> Response:
-	gamelist = search.get_gamelist()
+	gamelist = db.get_gamelist()
 	return Response.json([gamelist.plEntry(i) for i in range(gamelist.plSize())])
 
 def search_route(request: Request) -> Response:
 	pattern = typing.cast(str, request.body)
-	return Response.json(list(search.search(pattern)))
+	return Response.json(list(db.search(pattern)))
 
 def sgf(request: Request, file_path: str) -> Response:
 	try:
