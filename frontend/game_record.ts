@@ -43,7 +43,10 @@ export class GameRecord extends LitElement {
 		return this._readTask.render({
 			pending: () => html`loading...`,
 			complete: this._renderSGF,
-			error: (e) => html`${e}`
+			error: (e) => {
+				console.error('error fetching/parsing SGF:', e);
+				return html`${e}`;
+			}
 		});
 	}
 
