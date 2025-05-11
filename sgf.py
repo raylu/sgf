@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import dataclasses
 import mimetypes
 import pathlib
 import sys
@@ -24,7 +25,7 @@ def players(request: Request) -> Response:
 
 def search_route(request: Request) -> Response:
 	pattern = typing.cast(str, request.body)
-	return Response.json(list(db.search(pattern)))
+	return Response.json(dataclasses.asdict(db.search(pattern)))
 
 def sgf(request: Request, file_path: str) -> Response:
 	try:

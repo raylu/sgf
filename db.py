@@ -1,21 +1,11 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 
+import dataclasses
 import enum
 import pathlib
-import typing
 
 import kombilo
-
-def search(pattern_str: str) -> typing.Iterator[tuple[str, str]]:
-	gamelist = get_gamelist()
-	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
-	gamelist.search(pattern)
-	# for cont in gamelist.continuations:
-	# 	cont: kombilo.Continuation
-	# 	print(cont.label, 'has', cont.total())
-	for i in range(gamelist.num_hits):
-		path :str = gamelist.get_gameInfoStr(i).removeprefix('game_records/').removesuffix('.sgf')
-		yield path, gamelist.get_resultsStr(i)
 
 def get_gamelist() -> kombilo.GameList:
 	opts = kombilo.ProcessOptions()
@@ -23,6 +13,24 @@ def get_gamelist() -> kombilo.GameList:
 	opts.processVariations = False
 	opts.professional_tag = 2 # tag if 1p-9p
 	return kombilo.GameList('game_records/kombilo.db', '', '[[path]]/[[filename]]', opts)
+
+def search(pattern_str: str) -> SearchResult:
+	gamelist = get_gamelist()
+	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
+	gamelist.search(pattern)
+	# for cont in gamelist.continuations:
+	# 	cont: kombilo.Continuation
+	# 	print(cont.label, 'has', cont.total())
+	results = []
+	for i in range(min(gamelist.num_hits, 50)):
+		path: str = gamelist.get_gameInfoStr(i).removeprefix('game_records/').removesuffix('.sgf')
+		results.append((path, gamelist.get_resultsStr(i)))
+	return SearchResult(gamelist.num_hits, results)
+
+@dataclasses.dataclass(eq=False, frozen=True, slots=True)
+class SearchResult:
+	hits: int
+	results: list[tuple[str, str]]
 
 def process() -> None:
 	gamelist = get_gamelist()

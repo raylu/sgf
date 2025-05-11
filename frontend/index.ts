@@ -63,7 +63,8 @@ class SGFApp extends LitElement {
 				const searchResults = this._searchTask.render({
 					pending: () => html`searching...`,
 					complete: (results) => html`
-						${results.map(([path, result]) => {
+						hits: ${results.hits.toLocaleString()}
+						${results.results.map(([path, result]) => {
 							return html`<div><a href="game/${path}" @click="${this._navigate}">${path}</a> ${result}</div>`;
 						})}
 					`,
@@ -89,7 +90,7 @@ class SGFApp extends LitElement {
 
 	private _searchTask = new Task(this, {
 		args: () => [this.searchPattern] as const,
-		task: async ([pattern], {signal}): Promise<string[][]> => {
+		task: async ([pattern], {signal}): Promise<SearchResults> => {
 			const results = await this._post_json('/api/search', pattern, signal);
 			if (results.status !== 200)
 				throw new Error(`${results.status} ${results.statusText}`);
@@ -114,6 +115,11 @@ class SGFApp extends LitElement {
 			margin: 1em auto;
 		}
 	`];
+}
+
+interface SearchResults {
+	hits: number;
+	results: string[][];
 }
 
 (async function() {
