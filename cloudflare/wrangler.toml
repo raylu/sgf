@@ -1,0 +1,14 @@
+name = "sgf"
+main = "src/index.ts"
+compatibility_date = "2025-05-05"
+
+[placement]
+mode = "smart"
+[observability.logs]
+enabled = true
+
+# https://developers.cloudflare.com/r2/api/workers/workers-api-usage/
+[[r2_buckets]]
+binding = "SGF_BUCKET"
+bucket_name = "sgf"
+preview_bucket_name = "sgf"
