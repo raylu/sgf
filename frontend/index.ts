@@ -63,7 +63,7 @@ class SGFApp extends LitElement {
 				const searchResults = this._searchTask.render({
 					pending: () => html`searching...`,
 					complete: (results) => html`
-						hits: ${results.hits.toLocaleString()}
+						hits: ${results.results.length.toLocaleString()}
 						${results.results.map(([path, result]) => {
 							return html`<div><a href="game/${path}" @click="${this._navigate}">${path}</a> ${result}</div>`;
 						})}
@@ -118,7 +118,6 @@ class SGFApp extends LitElement {
 }
 
 interface SearchResults {
-	hits: number;
 	results: string[][];
 }
 

@@ -22,14 +22,17 @@ def search(pattern_str: str) -> SearchResult:
 	# 	cont: kombilo.Continuation
 	# 	print(cont.label, 'has', cont.total())
 	results = []
-	for i in range(min(gamelist.num_hits, 50)):
+	for i in range(gamelist.num_hits):
+		if not (result := gamelist.get_resultsStr(i)):
+			continue
 		path: str = gamelist.get_gameInfoStr(i).removeprefix('game_records/').removesuffix('.sgf')
-		results.append((path, gamelist.get_resultsStr(i)))
-	return SearchResult(gamelist.num_hits, results)
+		results.append((path, result))
+		if len(results) >= 50:
+			break
+	return SearchResult(results)
 
 @dataclasses.dataclass(eq=False, frozen=True, slots=True)
 class SearchResult:
-	hits: int
 	results: list[tuple[str, str]]
 
 def process() -> None:
