@@ -77,7 +77,7 @@ const int algo_hash_side = 7;
 /// \name date profile constants
 /**@{*/
 const int DATE_PROFILE_START = 1600;
-const int DATE_PROFILE_END = 2020;
+const int DATE_PROFILE_END = 2100;
 /**@}*/
 
 char* flipped_sig(int f, char* sig, int boardsize);
