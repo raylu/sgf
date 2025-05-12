@@ -36,7 +36,11 @@ def process() -> None:
 	gamelist = get_gamelist()
 	root = pathlib.Path('game_records')
 	glists = kombilo.vectorGL()
-	for subdir, _, filenames in root.walk():
+	for subdir, dirnames, filenames in root.walk(top_down=True):
+		if subdir.name.endswith('Fox Games'):
+			print('skipping', subdir)
+			dirnames.clear()
+			continue
 		print('processing', subdir)
 		gamelist.start_processing()
 		for filename in filenames:
