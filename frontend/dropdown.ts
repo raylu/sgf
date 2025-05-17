@@ -3,8 +3,8 @@ import {customElement, property, state} from 'lit/decorators.js';
 
 import globalCSS from './style';
 
-interface Option {
-	id: string | null
+export interface Option {
+	id: string
 	name: string
 }
 
@@ -24,7 +24,7 @@ export class LitDropdown extends LitElement {
 	@state()
 	protected filteredOptions: Option[] | null = null;
 	@state()
-	selected: Option = {'id': null, 'name': ''};
+	selected: Option = {'id': '', 'name': ''};
 	
 	others: LitDropdown[] = [];
 
@@ -74,23 +74,22 @@ export class LitDropdown extends LitElement {
 		}
 	}
 
-	select(value: string) {
+	select(id: string) {
 		for (const option of this.options) {
-			if (option['id'] == value) {
+			if (option['id'] == id) {
 				this.selected = option;
 				this.dispatchEvent(new CustomEvent('dropdown-select', {bubbles: true, composed: true}));
 				return;
 			}
 		}
-		throw 'no option with value ' + value;
+		throw 'no option with id ' + id;
 	}
 
 	private handleClick = async (event: Event) => {
 		event.stopPropagation();
 		const target = event.target as HTMLElement;
 		if (target.classList.contains('option')) {
-			const id = target.dataset['value'];
-			this.selected = {'id': id === undefined ? null : id, 'name': target.textContent!};
+			this.selected = {'id': target.dataset['value'] || '', 'name': target.textContent!};
 			this.open = false;
 			this.dispatchEvent(new CustomEvent('dropdown-select', {bubbles: true, composed: true}));
 		} else if (target.tagName != 'INPUT') {

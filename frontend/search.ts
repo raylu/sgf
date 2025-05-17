@@ -2,7 +2,7 @@ import {Task} from '@lit/task';
 import {html, css, LitElement} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 
-import {LitDropdown, setupClose} from './dropdown';
+import {LitDropdown, setupClose, type Option} from './dropdown';
 import globalCSS from './style';
 
 const navigate = new Event('navigate', {composed: true});
@@ -28,9 +28,13 @@ export class SGFSearch extends LitElement {
 		setupClose(this.player1Dropdown, this.player2Dropdown);
 		this.player1Dropdown.others = this.player2Dropdown.others = [this.player1Dropdown, this.player2Dropdown];
 		fetch('/api/players').then((response) => response.json()).then((players: string[]) => {
-			const options = players.map((player) => ({'id': null, 'name': player}));
+			const options: Option[] = [{'id': '', 'name': '(any)'}];
+			for (const player of players)
+				options.push({'id': player, 'name': player});
 			this.player1Dropdown.setOptions(options);
 			this.player2Dropdown.setOptions(options.slice());
+			this.player1Dropdown.select('');
+			this.player2Dropdown.select('');
 		});
 		this.addEventListener('dropdown-select', this._playerSelected);
 	}
@@ -55,8 +59,8 @@ export class SGFSearch extends LitElement {
 	}
 
 	private _playerSelected = (_event: Event) => {
-		this.player1 = this.player1Dropdown.selected.name;
-		this.player2 = this.player2Dropdown.selected.name;
+		this.player1 = this.player1Dropdown.selected.id;
+		this.player2 = this.player2Dropdown.selected.id;
 	}
 
 	private _searchClicked = async () => {
