@@ -1,6 +1,8 @@
 import {LitElement, css, html} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 
+import globalCSS from './style';
+
 interface Option {
 	id: string | null
 	name: string
@@ -40,7 +42,7 @@ export class LitDropdown extends LitElement {
 			</div>
 			<div class="options ${this.open ? 'open' : ''}">
 				<input @input=${debounce(100, this.search)} @keydown=${this.handleKeydown}>
-				${(this.filteredOptions ?? []).slice(0, 15).map((option) =>
+				${(this.filteredOptions ?? []).map((option) =>
 					html`<div class="option" data-value="${option['id']}">${option['name']}</div>`
 				)}
 			</div>
@@ -57,7 +59,7 @@ export class LitDropdown extends LitElement {
 			return;
 		const query = (this.shadowRoot.querySelector('input') as HTMLInputElement).value.toLocaleLowerCase();
 		if (!query)
-			this.filteredOptions = this.options.slice(0, 15);
+			this.filteredOptions = this.options;
 		else {
 			const prefix = [];
 			const contains = [];
@@ -65,10 +67,10 @@ export class LitDropdown extends LitElement {
 				const lower = option['name'].toLocaleLowerCase();
 				if (lower.startsWith(query))
 					prefix.push(option);
-				else if (contains.length < 15 && lower.indexOf(query) != -1)
+				else if (lower.indexOf(query) != -1)
 					contains.push(option);
 			}
-			this.filteredOptions = prefix.slice(0, 15).concat(contains.slice(0, 15 - prefix.length));
+			this.filteredOptions = prefix.concat(contains);
 		}
 	}
 
@@ -116,7 +118,7 @@ export class LitDropdown extends LitElement {
 		}
 	}
 
-	static styles = css`
+	static styles = [globalCSS, css`
 		:host {
 			position: relative;
 			display: flex;
@@ -141,6 +143,8 @@ export class LitDropdown extends LitElement {
 			top: 28px;
 			left: -1px;
 			width: 200px;
+			max-height: 15em;
+			overflow: hidden scroll;
 			background-color: #222;
 			border: 2px solid #444;
 			cursor: inherit;
@@ -159,7 +163,7 @@ export class LitDropdown extends LitElement {
 			background-color: #333;
 		}
 		.options > input {
-			width: 190px;
+			width: 175px;
 			margin: 3px;
 			cursor: inherit;
 			padding: 2px 3px;
@@ -182,7 +186,7 @@ export class LitDropdown extends LitElement {
 		.arrow.down {
 			border-top: 5px solid #38a;
 		}
-	`;
+	`];
 }
 
 function debounce(ms: number, func: () => void) {
