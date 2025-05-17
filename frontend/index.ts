@@ -63,6 +63,7 @@ class SGFApp extends LitElement {
 			display: block;
 			width: 900px;
 			margin: 0 auto;
+			padding: 20px;
 			background-color: #111;
 			color: #eee;
 			font-family: sans-serif;
