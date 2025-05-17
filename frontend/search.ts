@@ -17,7 +17,7 @@ export class SGFSearch extends LitElement {
 		const searchResults = this._searchTask.render({
 			pending: () => html`searching...`,
 			complete: (results) => html`
-				hits: ${results.results.length.toLocaleString()}
+				hits: ${results.num_hits.toLocaleString()}
 				${results.results.map(([path, result]) => {
 					return html`<div><a href="game/${path}" @click="${this._navigate}">${path}</a> ${result}</div>`;
 				})}
@@ -72,6 +72,7 @@ export class SGFSearch extends LitElement {
 }
 
 interface SearchResults {
+	num_hits: number;
 	results: string[][];
 }
 

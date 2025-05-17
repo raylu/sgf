@@ -12,7 +12,7 @@ def get_gamelist() -> kombilo.GameList:
 	opts.sgfInDB = False
 	opts.processVariations = False
 	opts.professional_tag = 2 # tag if 1p-9p
-	return kombilo.GameList('game_records/kombilo.db', '', '[[path]]/[[filename]]', opts)
+	return kombilo.GameList('game_records/kombilo.db', '', '[[path]]/[[filename]]|', opts)
 
 def search(pattern_str: str) -> SearchResult:
 	gamelist = get_gamelist()
@@ -22,17 +22,16 @@ def search(pattern_str: str) -> SearchResult:
 	# 	cont: kombilo.Continuation
 	# 	print(cont.label, 'has', cont.total())
 	results = []
-	for i in range(gamelist.num_hits):
-		if not (result := gamelist.get_resultsStr(i)):
-			continue
-		path: str = gamelist.get_gameInfoStr(i).removeprefix('game_records/').removesuffix('.sgf')
-		results.append((path, result))
-		if len(results) >= 50:
-			break
-	return SearchResult(results)
+	for i in range(min(gamelist.size(), 50)):
+		result: str = gamelist.currentEntryAsString(i)
+		path, continuations = result.split('|', 1)
+		path = path.removeprefix('game_records/').removesuffix('.sgf')
+		results.append((path, continuations.removesuffix(', ')))
+	return SearchResult(gamelist.num_hits, results)
 
 @dataclasses.dataclass(eq=False, frozen=True, slots=True)
 class SearchResult:
+	num_hits: int
 	results: list[tuple[str, str]]
 
 def process() -> None:
