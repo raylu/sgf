@@ -48,8 +48,7 @@ export class SGFSearch extends LitElement {
 		});
 		return html`
 			${this.patternSearch}
-			${this.player1Dropdown}
-			${this.player2Dropdown}
+			<div class="players">${this.player1Dropdown}${this.player2Dropdown}</div>
 			<button @click="${this._searchClicked}">search</button>
 			${searchResults}
 		`;
@@ -96,6 +95,13 @@ export class SGFSearch extends LitElement {
 		}
 		pattern-search {
 			margin: 1em auto;
+		}
+		.players {
+			display: flex;
+			margin: 1em 0;
+		}
+		.players > lit-dropdown {
+			margin-right: 20px;
 		}
 	`];
 }
