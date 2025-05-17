@@ -15,8 +15,17 @@ def get_gamelist() -> kombilo.GameList:
 	opts.professional_tag = 2 # tag if 1p-9p
 	return kombilo.GameList('game_records/kombilo.db', '', '[[path]]/[[filename]]|', opts)
 
-def search(pattern_str: str) -> SearchResult:
+def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 	gamelist = get_gamelist()
+
+	where = []
+	if player1:
+		where.append(f"(PB = '{player1}' OR PW = '{player1}')")
+	if player2:
+		where.append(f"(PB = '{player2}' OR PW = '{player2}')")
+	if where:
+		gamelist.gisearch(' AND '.join(where))
+
 	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
 	gamelist.search(pattern)
 	# for cont in gamelist.continuations:

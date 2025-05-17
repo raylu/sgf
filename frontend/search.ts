@@ -9,10 +9,14 @@ const navigate = new Event('navigate', {composed: true});
 
 @customElement('sgf-search')
 export class SGFSearch extends LitElement {
-	@property({attribute: false})
-	playerA = new LitDropdown();
-	@property({attribute: false})
-	playerB = new LitDropdown();
+	@property()
+	player1 = '';
+	@property()
+	player2 = '';
+	@state()
+	player1Dropdown = new LitDropdown();
+	@state()
+	player2Dropdown = new LitDropdown();
 
 	@state()
 	patternSearch = new PatternSearch();
@@ -21,13 +25,14 @@ export class SGFSearch extends LitElement {
 
 	connectedCallback(): void {
 		super.connectedCallback();
-		setupClose(this.playerA, this.playerB);
-		this.playerA.others = this.playerB.others = [this.playerA, this.playerB];
+		setupClose(this.player1Dropdown, this.player2Dropdown);
+		this.player1Dropdown.others = this.player2Dropdown.others = [this.player1Dropdown, this.player2Dropdown];
 		fetch('/api/players').then((response) => response.json()).then((players: string[]) => {
-			const options = players.map((player) => ({'id': player, 'name': player}));
-			this.playerA.setOptions(options);
-			this.playerB.setOptions(options.slice());
+			const options = players.map((player) => ({'id': null, 'name': player}));
+			this.player1Dropdown.setOptions(options);
+			this.player2Dropdown.setOptions(options.slice());
 		});
+		this.addEventListener('dropdown-select', this._playerSelected);
 	}
 
 	protected render() {
@@ -43,11 +48,16 @@ export class SGFSearch extends LitElement {
 		});
 		return html`
 			${this.patternSearch}
-			${this.playerA}
-			${this.playerB}
+			${this.player1Dropdown}
+			${this.player2Dropdown}
 			<button @click="${this._searchClicked}">search</button>
 			${searchResults}
 		`;
+	}
+
+	private _playerSelected = (e: Event) => {
+		this.player1 = this.player1Dropdown.selected.name;
+		this.player2 = this.player2Dropdown.selected.name;
 	}
 
 	private _searchClicked = async () => {
@@ -55,9 +65,9 @@ export class SGFSearch extends LitElement {
 	}
 
 	private _searchTask = new Task(this, {
-		args: () => [this.searchPattern] as const,
-		task: async ([pattern], {signal}): Promise<SearchResults> => {
-			const results = await this._post_json('/api/search', pattern, signal);
+		args: () => [this.searchPattern, this.player1, this.player2] as const,
+		task: async ([pattern, player1, player2], {signal}): Promise<SearchResults> => {
+			const results = await this._post_json('/api/search', {pattern, player1, player2}, signal);
 			if (results.status !== 200)
 				throw new Error(`${results.status} ${results.statusText}`);
 			return results.json();

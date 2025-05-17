@@ -387,7 +387,7 @@ class GameList {
     /**@{*/
     void gisearch(const char* sql, int complete=0) throw(DBError);
     ///< Search for given sql query. The string sql is inserted into the following query:
-    ///< select id from GAMES where %s " order by id;" % sql
+    ///< "select id from GAMES where %s order by id;" % sql
     ///< (putting the gamelist in the right order is dealt with separately)
     ///< If complete==1, then sql is passed as an sql query without any changes (i.e. you must put in the "select ..." stuff in yourself).
     
