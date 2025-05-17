@@ -55,7 +55,7 @@ export class SGFSearch extends LitElement {
 		`;
 	}
 
-	private _playerSelected = (e: Event) => {
+	private _playerSelected = (_event: Event) => {
 		this.player1 = this.player1Dropdown.selected.name;
 		this.player2 = this.player2Dropdown.selected.name;
 	}

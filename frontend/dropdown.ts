@@ -87,7 +87,8 @@ export class LitDropdown extends LitElement {
 		event.stopPropagation();
 		const target = event.target as HTMLElement;
 		if (target.classList.contains('option')) {
-			this.selected = {'id': target.dataset['value'], 'name': target.textContent};
+			const id = target.dataset['value'];
+			this.selected = {'id': id === undefined ? null : id, 'name': target.textContent!};
 			this.open = false;
 			this.dispatchEvent(new CustomEvent('dropdown-select', {bubbles: true, composed: true}));
 		} else if (target.tagName != 'INPUT') {
@@ -98,14 +99,14 @@ export class LitDropdown extends LitElement {
 
 			this.open = !this.open;
 			await this.updateComplete;
-			this.shadowRoot.querySelector('input').focus();
+			this.shadowRoot!.querySelector('input')!.focus();
 		}
 	}
 
 	private handleKeydown(event: KeyboardEvent) {
 		if (event.key == 'Enter') {
 			event.preventDefault();
-			if (this.filteredOptions.length > 0) {
+			if (this.filteredOptions !== null && this.filteredOptions.length > 0) {
 				this.selected = this.filteredOptions[0];
 				this.open = false;
 				(event.target as HTMLInputElement).value = '';
@@ -185,11 +186,12 @@ export class LitDropdown extends LitElement {
 }
 
 function debounce(ms: number, func: () => void) {
-	let timeout: number;
+	let timeout: number | undefined;
 	return function() {
 		clearTimeout(timeout);
 		timeout = window.setTimeout(() => {
-			timeout = null;
+			timeout = undefined;
+			// @ts-ignore
 			func.apply(this);
 		}, ms);
 	};
