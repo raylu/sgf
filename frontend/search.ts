@@ -2,16 +2,33 @@ import {Task} from '@lit/task';
 import {html, css, LitElement} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 
+import {LitDropdown, setupClose} from './dropdown';
 import globalCSS from './style';
 
 const navigate = new Event('navigate', {composed: true});
 
 @customElement('sgf-search')
 export class SGFSearch extends LitElement {
+	@property({attribute: false})
+	playerA = new LitDropdown();
+	@property({attribute: false})
+	playerB = new LitDropdown();
+
 	@state()
 	patternSearch = new PatternSearch();
 	@state()
 	searchPattern = this.patternSearch.pattern.join('');
+
+	connectedCallback(): void {
+		super.connectedCallback();
+		setupClose(this.playerA, this.playerB);
+		this.playerA.others = this.playerB.others = [this.playerA, this.playerB];
+		fetch('/api/players').then((response) => response.json()).then((players: string[]) => {
+			const options = players.map((player) => ({'id': player, 'name': player}));
+			this.playerA.setOptions(options);
+			this.playerB.setOptions(options.slice());
+		});
+	}
 
 	protected render() {
 		const searchResults = this._searchTask.render({
@@ -26,6 +43,8 @@ export class SGFSearch extends LitElement {
 		});
 		return html`
 			${this.patternSearch}
+			${this.playerA}
+			${this.playerB}
 			<button @click="${this._searchClicked}">search</button>
 			${searchResults}
 		`;

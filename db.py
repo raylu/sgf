@@ -4,6 +4,7 @@ from __future__ import annotations
 import dataclasses
 import enum
 import pathlib
+import typing
 
 import kombilo
 
@@ -33,6 +34,11 @@ def search(pattern_str: str) -> SearchResult:
 class SearchResult:
 	num_hits: int
 	results: list[tuple[str, str]]
+
+def players() -> typing.Iterator[str]:
+	gamelist = get_gamelist()
+	for i in range(gamelist.plSize()):
+		yield gamelist.plEntry(i)
 
 def process() -> None:
 	gamelist = get_gamelist()

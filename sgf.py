@@ -20,8 +20,7 @@ def root(request: Request, catchall: str | None = None) -> Response:
 	return Response(pathlib.Path('frontend/index.html').read_bytes(), content_type='text/html; charset=utf-8')
 
 def players(request: Request) -> Response:
-	gamelist = db.get_gamelist()
-	return Response.json([gamelist.plEntry(i) for i in range(gamelist.plSize())])
+	return Response.json(list(db.players()))
 
 def search_route(request: Request) -> Response:
 	pattern = typing.cast(str, request.body)
