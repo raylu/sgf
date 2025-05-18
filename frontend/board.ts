@@ -1,32 +1,40 @@
-import {LitElement, html, css, svg} from 'lit';
+import {LitElement, html, css, svg, type TemplateResult} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 import globalCSS from './style';
 
 const colLabels = 'ABCDEFGHJKLMNOPQRST';
+const tools = {
+	'*': 'any',
+	'.': 'empty',
+	'X': 'black',
+	'O': 'white',
+	'x': 'black or empty',
+	'o': 'white or empty',
+} as const;
+type Tool = keyof typeof tools;
+const stones: Record<Tool, TemplateResult> = {
+	'X': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#111" stroke="#aaa"></circle></svg>`,
+	'O': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#eee" stroke="#333"></circle></svg>`,
+}
 
 @customElement('go-board')
 export class GoBoard extends LitElement {
 	@property({attribute: false})
-	pattern: string[] = Array(19 * 19).fill('*');
+	pattern: Tool[] = Array(19 * 19).fill('*');
 
 	@state()
-	activeTool = '';
+	activeTool: Tool = 'X';
 
 	protected render() {
-		const tools = [
-			['*', 'any'],
-			['.', 'empty'],
-			['X', 'black'],
-			['O', 'white'],
-			['x', 'black or empty'],
-			['o', 'white or empty'],
-		];
 		return html`
 			<div class="board" @click="${this._boardClicked}">
 				${this.pattern.map((sym, i) => {
 					const row = Math.floor(i / 19) + 2;
 					const col = i % 19 + 2;
-					return html`<div class="point" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">${sym}</div>`;
+					const pointClass = tools[sym].replaceAll(' ', '_');
+					return html`<div class="point ${pointClass}" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
+						${stones[sym]}
+					</div>`;
 				})}
 				${colLabels.split('').map((label, i) => html`
 					<div class="coord" style="grid-row: 1; grid-column: ${i+2}">${label}</div>
@@ -45,18 +53,14 @@ export class GoBoard extends LitElement {
 				</svg>
 			</div>
 			<div class="palette" @click="${this._paletteClicked}">
-				${tools.map(([sym, desc]) => {
-			return html`
-					<div data-sym="${sym}" class="${this.activeTool === sym ? 'active' : ''}">${desc}</div>
-				`;
-		})}
+				${Object.entries(tools).map(([sym, desc]) =>
+					html`<div data-sym="${sym}" class="${this.activeTool === sym ? 'active' : ''}">${desc}</div>`
+				)}
 			</div>
 		`;
 	}
 
 	private _boardClicked = (e: MouseEvent) => {
-		if (this.activeTool === '')
-			return;
 		const index = (e.target as HTMLDivElement).dataset['i'];
 		if (index === undefined)
 			return;
@@ -68,7 +72,7 @@ export class GoBoard extends LitElement {
 		const sym = (e.target as HTMLDivElement).dataset['sym'];
 		if (sym === undefined)
 			return;
-		this.activeTool = sym;
+		this.activeTool = sym as Tool;
 	};
 
 	static styles = [globalCSS, css`
@@ -82,12 +86,12 @@ export class GoBoard extends LitElement {
 			width: 630px;
 			color: #111;
 			background-color: #ebc98a;
-			cursor: crosshair;
 			position: relative; /* for .grid */
 		}
 		.board > .point {
-			text-align: center;
-			line-height: 30px;
+			z-index: 1;
+		}
+		.board > .point.black {
 		}
 		.board > .coord {
 			text-align: center;
