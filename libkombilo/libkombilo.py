@@ -958,8 +958,9 @@ class DBError(Exception):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self):
-        _libkombilo.DBError_swiginit(self, _libkombilo.new_DBError())
+    def __init__(self, *args):
+        _libkombilo.DBError_swiginit(self, _libkombilo.new_DBError(*args))
+    msg = property(_libkombilo.DBError_msg_get, _libkombilo.DBError_msg_set)
     __swig_destroy__ = _libkombilo.delete_DBError
 
 # Register DBError in _libkombilo:

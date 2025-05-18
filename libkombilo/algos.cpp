@@ -51,9 +51,7 @@ using std::sort;
 #endif
 
 
-DBError::DBError() {
-}
-
+DBError::DBError(string msg) : msg(msg) {}
 
 // ------------------------------------------------------------------------------------------------
 

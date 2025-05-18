@@ -1001,19 +1001,19 @@ void GameList::gisearch(const char* sql, vector<string> params, bool complete) t
     query += " order by id";
     sqlite3_stmt *stmt;
     int rc = sqlite3_prepare_v2(db, query.c_str(), query.length() + 1, &stmt, nullptr);
-    if (rc != SQLITE_OK) throw DBError();
+    if (rc != SQLITE_OK) throw DBError(sqlite3_errmsg(db));
     for (int i = 0; i < params.size(); i++) {
       rc = sqlite3_bind_text(stmt, i+1, params[i].c_str(), params[i].length(), SQLITE_STATIC);
       if (rc != SQLITE_OK) {
         sqlite3_finalize(stmt);
-        throw DBError();
+        throw DBError(sqlite3_errmsg(db));
       }
     }
     while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
       makeIndexHit(sqlite3_column_int(stmt, 0), 0);
     }
     sqlite3_finalize(stmt);
-    if (rc != SQLITE_DONE) throw DBError();
+    if (rc != SQLITE_DONE) throw DBError(sqlite3_errmsg(db));
 
     end_sorted();
     update_dates_current();

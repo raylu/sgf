@@ -21040,14 +21040,128 @@ SWIGINTERN PyObject *PatternError_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObj
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_DBError(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_DBError__SWIG_0(PyObject *self, Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
   PyObject *resultobj = 0;
   DBError *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_DBError", 0, 0, 0)) SWIG_fail;
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   result = (DBError *)new DBError();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_DBError, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_DBError__SWIG_1(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::string arg1 ;
+  DBError *result = 0 ;
+  
+  (void)self;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "new_DBError" "', argument " "1"" of type '" "std::string""'"); 
+    }
+    arg1 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (DBError *)new DBError(SWIG_STD_MOVE(arg1));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_DBError, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_DBError(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "new_DBError", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_new_DBError__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v = 0;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_DBError__SWIG_1(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'new_DBError'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    DBError::DBError()\n"
+    "    DBError::DBError(std::string)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_DBError_msg_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  DBError *arg1 = (DBError *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "DBError_msg_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_DBError, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DBError_msg_set" "', argument " "1"" of type '" "DBError *""'"); 
+  }
+  arg1 = reinterpret_cast< DBError * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DBError_msg_set" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "DBError_msg_set" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  if (arg1) (arg1)->msg = *arg2;
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DBError_msg_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  DBError *arg1 = (DBError *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string *result = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_DBError, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DBError_msg_get" "', argument " "1"" of type '" "DBError *""'"); 
+  }
+  arg1 = reinterpret_cast< DBError * >(argp1);
+  result = (std::string *) & ((arg1)->msg);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(*result));
   return resultobj;
 fail:
   return NULL;
@@ -30275,7 +30389,7 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_0(PyObject *self, Py_ssize_t 
   PyObject *resultobj = 0;
   GameList *arg1 = (GameList *) 0 ;
   char *arg2 = (char *) 0 ;
-  std::vector< std::string > arg3 ;
+  std::vector< std::string,std::allocator< std::string > > arg3 ;
   bool arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -30301,7 +30415,7 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_0(PyObject *self, Py_ssize_t 
     std::vector< std::string,std::allocator< std::string > > *ptr = (std::vector< std::string,std::allocator< std::string > > *)0;
     int res = swig::asptr(swig_obj[2], &ptr);
     if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "std::vector< std::string >""'"); 
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "std::vector< std::string,std::allocator< std::string > >""'"); 
     }
     arg3 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
@@ -30329,7 +30443,7 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_1(PyObject *self, Py_ssize_t 
   PyObject *resultobj = 0;
   GameList *arg1 = (GameList *) 0 ;
   char *arg2 = (char *) 0 ;
-  std::vector< std::string > arg3 ;
+  std::vector< std::string,std::allocator< std::string > > arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 ;
@@ -30352,7 +30466,7 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_1(PyObject *self, Py_ssize_t 
     std::vector< std::string,std::allocator< std::string > > *ptr = (std::vector< std::string,std::allocator< std::string > > *)0;
     int res = swig::asptr(swig_obj[2], &ptr);
     if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "std::vector< std::string >""'"); 
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "std::vector< std::string,std::allocator< std::string > >""'"); 
     }
     arg3 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
@@ -30423,8 +30537,8 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch(PyObject *self, PyObject *args) {
 fail:
   SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'GameList_gisearch'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    GameList::gisearch(char const *,std::vector< std::string >,bool)\n"
-    "    GameList::gisearch(char const *,std::vector< std::string >)\n");
+    "    GameList::gisearch(char const *,std::vector< std::string,std::allocator< std::string > >,bool)\n"
+    "    GameList::gisearch(char const *,std::vector< std::string,std::allocator< std::string > >)\n");
   return 0;
 }
 
@@ -40219,7 +40333,9 @@ static PyMethodDef SwigMethods[] = {
 	 { "delete_PatternError", _wrap_delete_PatternError, METH_O, NULL},
 	 { "PatternError_swigregister", PatternError_swigregister, METH_O, NULL},
 	 { "PatternError_swiginit", PatternError_swiginit, METH_VARARGS, NULL},
-	 { "new_DBError", _wrap_new_DBError, METH_NOARGS, NULL},
+	 { "new_DBError", _wrap_new_DBError, METH_VARARGS, NULL},
+	 { "DBError_msg_set", _wrap_DBError_msg_set, METH_VARARGS, NULL},
+	 { "DBError_msg_get", _wrap_DBError_msg_get, METH_O, NULL},
 	 { "delete_DBError", _wrap_delete_DBError, METH_O, NULL},
 	 { "DBError_swigregister", DBError_swigregister, METH_O, NULL},
 	 { "DBError_swiginit", DBError_swiginit, METH_VARARGS, NULL},

@@ -118,7 +118,9 @@ class PatternError {
 
 class DBError {
   public:
-    DBError();
+    DBError() = default;
+    explicit DBError(std::string msg);
+    std::string msg;
 };
 
 class Symmetries {
