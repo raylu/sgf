@@ -46,7 +46,12 @@ export class SGFSearch extends LitElement {
 			complete: (results) => html`
 				hits: ${results.num_hits.toLocaleString()}
 				${results.results.map(([path, result]) => {
-					return html`<div><a href="game/${path}" @click="${this._navigate}">${path}</a> ${result}</div>`;
+					return html`
+					<div>
+						${path}
+						${result.split(', ').map((continuation) =>
+							html`<a href="game/${path}?m=${continuation.match(/\d+/)![0]}" @click="${this._navigate}">${continuation}</a> `)}
+					</div>`;
 				})}
 			`,
 			error: (e) => html`${e}`

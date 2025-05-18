@@ -17,6 +17,8 @@ class SGFApp extends LitElement {
 	@state()
 	gamePath = '';
 	@state()
+	moveNum: number | null = null;
+	@state()
 	sgfSearch = new SGFSearch();
 
 	constructor() {
@@ -36,6 +38,8 @@ class SGFApp extends LitElement {
 		else if (location.pathname.startsWith('/game/')) {
 			this.page = Page.Game;
 			this.gamePath = location.pathname.substring(6);
+			if (location.search.startsWith('?m='))
+				this.moveNum = parseInt(location.search.substring(3));
 		}
 	}
 
@@ -53,7 +57,7 @@ class SGFApp extends LitElement {
 		case Page.Game:
 			return html`
 				<a href="/" @click="${this._navigate}">back</a>
-				<game-record path="${this.gamePath}"></game-record>
+				<game-record path="${this.gamePath}" moveNum="${this.moveNum}"></game-record>
 			`;
 		}
 	}
