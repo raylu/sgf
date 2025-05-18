@@ -1283,8 +1283,8 @@ class GameList(object):
     def getSignature(self, i):
         return _libkombilo.GameList_getSignature(self, i)
 
-    def gisearch(self, sql, complete=0):
-        return _libkombilo.GameList_gisearch(self, sql, complete)
+    def gisearch(self, sql, params, complete=False):
+        return _libkombilo.GameList_gisearch(self, sql, params, complete)
 
     def gisearchNC(self, sql, complete=0):
         return _libkombilo.GameList_gisearchNC(self, sql, complete)

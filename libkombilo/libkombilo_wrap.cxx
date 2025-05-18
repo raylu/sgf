@@ -30275,17 +30275,18 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_0(PyObject *self, Py_ssize_t 
   PyObject *resultobj = 0;
   GameList *arg1 = (GameList *) 0 ;
   char *arg2 = (char *) 0 ;
-  int arg3 ;
+  std::vector< std::string > arg3 ;
+  bool arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 ;
   char *buf2 = 0 ;
   int alloc2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  bool val4 ;
+  int ecode4 = 0 ;
   
   (void)self;
-  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  if ((nobjs < 4) || (nobjs > 4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_GameList, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GameList_gisearch" "', argument " "1"" of type '" "GameList *""'"); 
@@ -30296,13 +30297,22 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_0(PyObject *self, Py_ssize_t 
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GameList_gisearch" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "int""'");
+  {
+    std::vector< std::string,std::allocator< std::string > > *ptr = (std::vector< std::string,std::allocator< std::string > > *)0;
+    int res = swig::asptr(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "std::vector< std::string >""'"); 
+    }
+    arg3 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  ecode4 = SWIG_AsVal_bool(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GameList_gisearch" "', argument " "4"" of type '" "bool""'");
   } 
-  arg3 = static_cast< int >(val3);
+  arg4 = static_cast< bool >(val4);
   try {
-    (arg1)->gisearch((char const *)arg2,arg3);
+    (arg1)->gisearch((char const *)arg2,SWIG_STD_MOVE(arg3),arg4);
   } catch(DBError &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new DBError(static_cast< const DBError& >(_e))),SWIGTYPE_p_DBError,SWIG_POINTER_OWN), "DBError", SWIGTYPE_p_DBError); SWIG_fail;
   }
@@ -30319,6 +30329,7 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_1(PyObject *self, Py_ssize_t 
   PyObject *resultobj = 0;
   GameList *arg1 = (GameList *) 0 ;
   char *arg2 = (char *) 0 ;
+  std::vector< std::string > arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 ;
@@ -30326,7 +30337,7 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_1(PyObject *self, Py_ssize_t 
   int alloc2 = 0 ;
   
   (void)self;
-  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_GameList, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GameList_gisearch" "', argument " "1"" of type '" "GameList *""'"); 
@@ -30337,8 +30348,17 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch__SWIG_1(PyObject *self, Py_ssize_t 
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GameList_gisearch" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
+  {
+    std::vector< std::string,std::allocator< std::string > > *ptr = (std::vector< std::string,std::allocator< std::string > > *)0;
+    int res = swig::asptr(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "GameList_gisearch" "', argument " "3"" of type '" "std::vector< std::string >""'"); 
+    }
+    arg3 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
   try {
-    (arg1)->gisearch((char const *)arg2);
+    (arg1)->gisearch((char const *)arg2,SWIG_STD_MOVE(arg3));
   } catch(DBError &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new DBError(static_cast< const DBError& >(_e))),SWIGTYPE_p_DBError,SWIG_POINTER_OWN), "DBError", SWIGTYPE_p_DBError); SWIG_fail;
   }
@@ -30353,25 +30373,12 @@ fail:
 
 SWIGINTERN PyObject *_wrap_GameList_gisearch(PyObject *self, PyObject *args) {
   Py_ssize_t argc;
-  PyObject *argv[4] = {
+  PyObject *argv[5] = {
     0
   };
   
-  if (!(argc = SWIG_Python_UnpackTuple(args, "GameList_gisearch", 0, 3, argv))) SWIG_fail;
+  if (!(argc = SWIG_Python_UnpackTuple(args, "GameList_gisearch", 0, 4, argv))) SWIG_fail;
   --argc;
-  if (argc == 2) {
-    int _v = 0;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_GameList, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_GameList_gisearch__SWIG_1(self, argc, argv);
-      }
-    }
-  }
   if (argc == 3) {
     int _v = 0;
     void *vptr = 0;
@@ -30381,12 +30388,33 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch(PyObject *self, PyObject *args) {
       int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
+        int res = swig::asptr(argv[2], (std::vector< std::string,std::allocator< std::string > >**)(0));
+        _v = SWIG_CheckState(res);
         if (_v) {
-          return _wrap_GameList_gisearch__SWIG_0(self, argc, argv);
+          return _wrap_GameList_gisearch__SWIG_1(self, argc, argv);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v = 0;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_GameList, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsCharPtrAndSize(argv[1], 0, NULL, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = swig::asptr(argv[2], (std::vector< std::string,std::allocator< std::string > >**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          {
+            int res = SWIG_AsVal_bool(argv[3], NULL);
+            _v = SWIG_CheckState(res);
+          }
+          if (_v) {
+            return _wrap_GameList_gisearch__SWIG_0(self, argc, argv);
+          }
         }
       }
     }
@@ -30395,8 +30423,8 @@ SWIGINTERN PyObject *_wrap_GameList_gisearch(PyObject *self, PyObject *args) {
 fail:
   SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'GameList_gisearch'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    GameList::gisearch(char const *,int)\n"
-    "    GameList::gisearch(char const *)\n");
+    "    GameList::gisearch(char const *,std::vector< std::string >,bool)\n"
+    "    GameList::gisearch(char const *,std::vector< std::string >)\n");
   return 0;
 }
 

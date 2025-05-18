@@ -1,4 +1,4 @@
-CXXFLAGS=-O2 -fPIC -std=c++11 -pipe -march=native
+CXXFLAGS=-O2 -fPIC -std=c++11 -pipe -march=native -Wno-deprecated
 
 _libkombilo.so: libkombilo_wrap.o abstractboard.o algos.o pattern.o search.o sgfparser.o
 	clang++ ${CXXFLAGS} -shared $^ -lsqlite3 -o $@

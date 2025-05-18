@@ -35,19 +35,11 @@
 #include <fstream>
 #include <sstream>
 
-// FIXME check for security pbms (buffer overflow) in all places where a char[] of fixed length is used! (also in other files)
-
-
 unsigned long stringhash(int bs, unsigned char *str) { // returns hashcode of char[bs*bs]
   unsigned long hash = 0;
   for(int i=0; i<bs*bs; i++) hash = str[i] + (hash << 6) + (hash << 16) - hash;
   return hash;
 }
-
-
-
-
-
 
 Candidate::Candidate(char X, char Y, char ORIENTATION) {
   x = X;
@@ -748,7 +740,7 @@ void GameList::tagsearch(int tag) throw(DBError) {
   } else {
     sprintf(sql, "select GAMES.id from GAMES except select GAMES.id from GAMES join game_tags on GAMES.id = game_tags.game_id where game_tags.tag_id = %d order by GAMES.id;", -tag);
   }
-  gisearch(sql, 1);
+  gisearch(sql, {}, true);
 }
 
 
@@ -845,7 +837,7 @@ void GameList::tagsearchSQL(char* query) throw(DBError) {
   char sql[1000];
 
   sprintf(sql, "select GAMES.id from GAMES where %s order by GAMES.id", query);
-  gisearch(sql, 1);
+  gisearch(sql, {}, true);
 }
 
 void GameList::setTagID(int tag, int i) throw(DBError) {
@@ -1002,21 +994,26 @@ vector<int> GameList::sigsearchNC(char* sig) throw(DBError) {
   return result;
 }
 
-int gis_callback(void *gl, int argc, char **argv, char **azColName) {
-  if (!argc) return 1;
-  ((GameList*)gl)->makeIndexHit(atoi(argv[0]), 0);
-  return 0;
-}
-
-void GameList::gisearch(const char* sql, int complete) throw(DBError) {
+void GameList::gisearch(const char* sql, vector<string> params, bool complete) throw(DBError) {
   if (start_sorted() == 0) { 
-    string query;
-    if (!complete) query = "select id from GAMES where ";
+    string query = "select id from GAMES where ";
     query += sql;
-    if (!complete) query += " order by id";
-    // printf("%s\n", query.c_str());
-    int rc = sqlite3_exec(db, query.c_str(), gis_callback, this, 0);
-    if( rc!=SQLITE_OK ) throw DBError();
+    query += " order by id";
+    sqlite3_stmt *stmt;
+    int rc = sqlite3_prepare_v2(db, query.c_str(), query.length() + 1, &stmt, nullptr);
+    if (rc != SQLITE_OK) throw DBError();
+    for (int i = 0; i < params.size(); i++) {
+      rc = sqlite3_bind_text(stmt, i+1, params[i].c_str(), params[i].length(), SQLITE_STATIC);
+      if (rc != SQLITE_OK) {
+        sqlite3_finalize(stmt);
+        throw DBError();
+      }
+    }
+    while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+      makeIndexHit(sqlite3_column_int(stmt, 0), 0);
+    }
+    sqlite3_finalize(stmt);
+    if (rc != SQLITE_DONE) throw DBError();
 
     end_sorted();
     update_dates_current();

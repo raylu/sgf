@@ -385,7 +385,7 @@ class GameList {
 
     /// \name game info search
     /**@{*/
-    void gisearch(const char* sql, int complete=0) throw(DBError);
+    void gisearch(const char* sql, std::vector<std::string> params, bool complete=false) throw(DBError);
     ///< Search for given sql query. The string sql is inserted into the following query:
     ///< "select id from GAMES where %s order by id;" % sql
     ///< (putting the gamelist in the right order is dealt with separately)
@@ -495,7 +495,6 @@ class GameList {
     friend class Algo_hash_full;
     friend class Algo_hash;
     friend class Algo_hash_corner;
-    friend int gis_callback(void *gl, int argc, char **argv, char **azColName);
     friend int gis_callbackNC(void *pair_gl_CL, int argc, char **argv, char **azColName);
 
   private:
