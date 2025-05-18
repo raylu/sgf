@@ -56,15 +56,14 @@ export class GameRecord extends LitElement {
 		const moves = [];
 
 		let moveNum = 0;
-		let player = 'B';
+		let player: 'B' | 'W' = 'B';
 		while ((node = node.children[0])) {
 			moveNum++;
 			let [move] = node.data[player];
 			moves.push(html`<div data-num="${moveNum}" class="${player.toLowerCase()} ${moveNum === this.moveNum ? 'active' : ''}">${moveNum}</div>`);
 			if (this.moveNum === null || moveNum <= this.moveNum) {
-				const [y, x] = sgf_to_coords(move);
-				const index = y * 19 + x;
-				goBoard.pattern[index] = player == 'B' ? 'X' : 'O';
+				const [row, col] = sgf_to_coords(move);
+				goBoard.play(row, col, player);
 			}
 			if (player === 'B')
 				player = 'W';

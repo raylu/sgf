@@ -89,6 +89,40 @@ export class GoBoard extends LitElement {
 		this.activeTool = sym as Tool;
 	};
 
+	play(row: number, col: number, color: 'B' | 'W') {
+		const index = row * 19 + col;
+		this.pattern[index] = color == 'B' ? 'X' : 'O';
+		// check for capture
+		const opponent = color == 'B' ? 'O' : 'X';
+		for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+			const seen = new Set<number>();
+			if (this._checkCaptured(row + dr, col + dc, opponent, seen))
+				for (const i of seen)
+					this.pattern[i] = '.';
+		}
+		this.requestUpdate();
+	}
+
+	private _checkCaptured(row: number, col: number, opponent: 'O' | 'X', seen: Set<number>): boolean {
+		if (row < 0 || row >= 19 || col < 0 || col >= 19)
+			return true;
+		const index = row * 19 + col;
+		if (seen.has(index))
+			return true;
+		const stone = this.pattern[index];
+		if (stone === opponent) { // same group
+			seen.add(index);
+			let captured = true;
+			for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]])
+				captured &&= this._checkCaptured(row+dr, col+dc, opponent, seen);
+			return captured;
+		} else if (stone === '.') { // has a liberty
+			return false;
+		} else { // stone is just played color
+			return true;
+		}
+	}
+
 	static styles = [globalCSS, css`
 		:host {
 			display: flex;
