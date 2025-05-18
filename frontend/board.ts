@@ -12,9 +12,13 @@ const tools = {
 	'o': 'white or empty',
 } as const;
 type Tool = keyof typeof tools;
-const stones: Record<Tool, TemplateResult> = {
+const stones: Record<Tool, TemplateResult | null> = {
+	'*': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#fff0" stroke="#aaa"></circle></svg>`,
+	'.': null,
 	'X': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#111" stroke="#aaa"></circle></svg>`,
 	'O': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#eee" stroke="#333"></circle></svg>`,
+	'x': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#1119" stroke="#07a"></circle></svg>`,
+	'o': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#eee9" stroke="#07a"></circle></svg>`,
 }
 
 @customElement('go-board')
@@ -31,8 +35,7 @@ export class GoBoard extends LitElement {
 				${this.pattern.map((sym, i) => {
 					const row = Math.floor(i / 19) + 2;
 					const col = i % 19 + 2;
-					const pointClass = tools[sym].replaceAll(' ', '_');
-					return html`<div class="point ${pointClass}" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
+					return html`<div class="point" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
 						${stones[sym]}
 					</div>`;
 				})}
@@ -61,7 +64,12 @@ export class GoBoard extends LitElement {
 	}
 
 	private _boardClicked = (e: MouseEvent) => {
-		const index = (e.target as HTMLDivElement).dataset['i'];
+		let target: HTMLElement | null = e.target as HTMLElement;
+		while (target.dataset['i'] === undefined) {
+			target = target.parentElement;
+			if (!target) return;
+		}
+		const index = target.dataset['i'];
 		if (index === undefined)
 			return;
 		this.pattern[parseInt(index, 10)] = this.activeTool;
@@ -91,7 +99,9 @@ export class GoBoard extends LitElement {
 		.board > .point {
 			z-index: 1;
 		}
-		.board > .point.black {
+		.board > .point > svg {
+			width: 30px;
+			height: 30px;
 		}
 		.board > .coord {
 			text-align: center;
