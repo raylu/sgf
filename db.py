@@ -19,12 +19,19 @@ def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 	gamelist = get_gamelist()
 
 	where = []
+	params = []
 	if player1:
-		where.append(f"(PB = '{player1}' OR PW = '{player1}')")
+		where.append("(PB = ? OR PW = ?)")
+		params.extend([player1, player1])
 	if player2:
-		where.append(f"(PB = '{player2}' OR PW = '{player2}')")
+		where.append("(PB = ? OR PW = ?)")
+		params.extend([player2, player2])
 	if where:
-		gamelist.gisearch(' AND '.join(where))
+		try:
+			gamelist.gisearch(' AND '.join(where), params)
+		except kombilo.DBError as e:
+			print(e.msg)
+			raise
 
 	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
 	gamelist.search(pattern)
