@@ -1,4 +1,4 @@
-import {LitElement, html, css} from 'lit';
+import {LitElement, html, css, svg} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 import globalCSS from './style';
 
@@ -34,6 +34,15 @@ export class GoBoard extends LitElement {
 				${Array.from({length: 19}, (_, i) => html`
 					<div class="coord" style="grid-row: ${19-i+1}; grid-column: 1">${i+1}</div>
 					<div class="coord" style="grid-row: ${19-i+1}; grid-column: 21">${i+1}</div>`)}
+				<svg class="grid">
+					${Array.from({length: 19}, (_, i) => svg`<rect x="45" y="${45 + i*30}" width="540" height="1"></rect>`)}
+					${Array.from({length: 19}, (_, i) => svg`<rect x="${45 + i*30}" y="45" width="1" height="540"></rect>`)}
+					${[
+						[3, 3], [9, 3], [15, 3],
+						[3, 9], [9, 9], [15, 9],
+						[3,15], [9,15], [15,15]
+					].map(([x, y]) => svg`<circle cx="${45 + x*30}" cy="${45 + y*30}" r="3.5px"></circle>`)}
+				</svg>
 			</div>
 			<div class="palette" @click="${this._paletteClicked}">
 				${tools.map(([sym, desc]) => {
@@ -74,6 +83,7 @@ export class GoBoard extends LitElement {
 			color: #111;
 			background-color: #ebc98a;
 			cursor: crosshair;
+			position: relative; /* for .grid */
 		}
 		.board > .point {
 			text-align: center;
@@ -82,6 +92,14 @@ export class GoBoard extends LitElement {
 		.board > .coord {
 			text-align: center;
 			line-height: 30px;
+		}
+		.board > svg.grid {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
 		}
 		.palette {
 			width: 140px;
