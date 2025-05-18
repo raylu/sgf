@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 import globalCSS from './style';
 
+const colLabels = 'ABCDEFGHJKLMNOPQRST';
 
 @customElement('go-board')
 export class GoBoard extends LitElement {
@@ -22,7 +23,17 @@ export class GoBoard extends LitElement {
 		];
 		return html`
 			<div class="board" @click="${this._boardClicked}">
-				${this.pattern.map((sym, i) => html`<div class="point" data-i="${i}">${sym}</div>`)}
+				${this.pattern.map((sym, i) => {
+					const row = Math.floor(i / 19) + 2;
+					const col = i % 19 + 2;
+					return html`<div class="point" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">${sym}</div>`;
+				})}
+				${colLabels.split('').map((label, i) => html`
+					<div class="coord" style="grid-row: 1; grid-column: ${i+2}">${label}</div>
+					<div class="coord" style="grid-row: 21; grid-column: ${i+2}">${label}</div>`)}
+				${Array.from({length: 19}, (_, i) => html`
+					<div class="coord" style="grid-row: ${19-i+1}; grid-column: 1">${i+1}</div>
+					<div class="coord" style="grid-row: ${19-i+1}; grid-column: 21">${i+1}</div>`)}
 			</div>
 			<div class="palette" @click="${this._paletteClicked}">
 				${tools.map(([sym, desc]) => {
@@ -58,15 +69,19 @@ export class GoBoard extends LitElement {
 		}
 		.board {
 			display: grid;
-			grid-template: repeat(19, 30px) / repeat(19, 30px);
-			width: 570px;
+			grid-template: repeat(21, 30px) / repeat(21, 30px);
+			width: 630px;
+			color: #111;
 			background-color: #ebc98a;
 			cursor: crosshair;
 		}
 		.board > .point {
 			text-align: center;
 			line-height: 30px;
-			color: #111;
+		}
+		.board > .coord {
+			text-align: center;
+			line-height: 30px;
 		}
 		.palette {
 			width: 140px;
