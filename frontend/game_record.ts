@@ -3,10 +3,9 @@ import {html, css, LitElement} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 // @ts-ignore
 import * as sgf from '@sabaki/sgf';
-// @ts-ignore
-import * as tenuki from 'tenuki';
 
 import globalCSS, {tenukiCSS} from './style';
+import {GoBoard} from './board';
 
 function sgf_to_coords(move: string): [number, number] {
 	// https://red-bean.com/sgf/go.html
@@ -51,9 +50,9 @@ export class GameRecord extends LitElement {
 	}
 
 	private _renderSGF = (node: any) => {
-		const tenukiEl = document.createElement('div');
-		tenukiEl.classList.add('tenuki-board');
-		const game = new tenuki.Game({'element': tenukiEl});
+		const goBoard = new GoBoard();
+		goBoard.mode = 'game_record';
+		goBoard.pattern = Array(19 * 19).fill('.');
 		const moves = [];
 
 		let moveNum = 0;
@@ -64,7 +63,8 @@ export class GameRecord extends LitElement {
 			moves.push(html`<div data-num="${moveNum}" class="${player.toLowerCase()} ${moveNum === this.moveNum ? 'active' : ''}">${moveNum}</div>`);
 			if (this.moveNum === null || moveNum <= this.moveNum) {
 				const [y, x] = sgf_to_coords(move);
-				game.playAt(y, x);
+				const index = y * 19 + x;
+				goBoard.pattern[index] = player == 'B' ? 'X' : 'O';
 			}
 			if (player === 'B')
 				player = 'W';
@@ -72,7 +72,7 @@ export class GameRecord extends LitElement {
 				player = 'B';
 		}
 		const movesT = html`<div class="moves">${moves}</div>`
-		return [tenukiEl, movesT];
+		return [goBoard, movesT];
 	}
 
 	private _moveClicked = (e: Event) => {
@@ -86,7 +86,7 @@ export class GameRecord extends LitElement {
 			color: #eee;
 			font-family: sans-serif;
 		}
-		.tenuki-board {
+		go-board {
 			margin: 1em auto;
 		}
 		.moves {

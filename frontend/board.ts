@@ -23,6 +23,9 @@ const stones: Record<Tool, TemplateResult | null> = {
 
 @customElement('go-board')
 export class GoBoard extends LitElement {
+	@property()
+	mode: 'pattern' | 'game_record' | 'guess' = 'pattern';
+
 	@property({attribute: false})
 	pattern: Tool[] = Array(19 * 19).fill('*');
 
@@ -55,15 +58,18 @@ export class GoBoard extends LitElement {
 					].map(([x, y]) => svg`<circle cx="${45 + x*30}" cy="${45 + y*30}" r="3.5px"></circle>`)}
 				</svg>
 			</div>
-			<div class="palette" @click="${this._paletteClicked}">
-				${Object.entries(tools).map(([sym, desc]) =>
-					html`<div data-sym="${sym}" class="${this.activeTool === sym ? 'active' : ''}">${desc}</div>`
-				)}
-			</div>
+			${(this.mode === 'pattern') ? html`
+				<div class="palette" @click="${this._paletteClicked}">
+					${Object.entries(tools).map(([sym, desc]) =>
+						html`<div data-sym="${sym}" class="${this.activeTool === sym ? 'active' : ''}">${desc}</div>`
+					)}
+				</div>` : null}
 		`;
 	}
 
 	private _boardClicked = (e: MouseEvent) => {
+		if (this.mode == 'game_record')
+			return;
 		let target: HTMLElement | null = e.target as HTMLElement;
 		while (target.dataset['i'] === undefined) {
 			target = target.parentElement;
