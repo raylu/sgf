@@ -4,6 +4,7 @@ import {customElement, property, state} from 'lit/decorators.js';
 
 import {LitDropdown, setupClose, type Option} from './dropdown';
 import globalCSS from './style';
+import {GoBoard} from './board';
 
 const navigate = new Event('navigate', {composed: true});
 
@@ -19,9 +20,9 @@ export class SGFSearch extends LitElement {
 	player2Dropdown = new LitDropdown();
 
 	@state()
-	patternSearch = new PatternSearch();
+	goBoard = new GoBoard();
 	@state()
-	searchPattern = this.patternSearch.pattern.join('');
+	searchPattern = this.goBoard.pattern.join('');
 
 	connectedCallback(): void {
 		super.connectedCallback();
@@ -51,7 +52,7 @@ export class SGFSearch extends LitElement {
 			error: (e) => html`${e}`
 		});
 		return html`
-			${this.patternSearch}
+			${this.goBoard}
 			<div class="players">${this.player1Dropdown}${this.player2Dropdown}</div>
 			<button @click="${this._searchClicked}">search</button>
 			${searchResults}
@@ -64,7 +65,7 @@ export class SGFSearch extends LitElement {
 	}
 
 	private _searchClicked = async () => {
-		this.searchPattern = this.patternSearch.pattern.join('');
+		this.searchPattern = this.goBoard.pattern.join('');
 	}
 
 	private _searchTask = new Task(this, {
@@ -97,7 +98,7 @@ export class SGFSearch extends LitElement {
 			color: #58a;
 			text-decoration: none;
 		}
-		pattern-search {
+		go-board {
 			margin: 1em auto;
 		}
 		.players {
@@ -115,78 +116,4 @@ interface SearchResults {
 	results: string[][];
 }
 
-@customElement('pattern-search')
-class PatternSearch extends LitElement {
-	@property({attribute: false})
-	pattern: string[] = Array(19*19).fill('*');
 
-	@state()
-	activeTool = '';
-
-	protected render() {
-		const tools = [
-			['*', 'any'],
-			['.', 'empty'],
-			['X', 'black'],
-			['O', 'white'],
-			['x', 'black or empty'],
-			['o', 'white or empty'],
-		];
-		return html`
-			<div class="board" @click="${this._boardClicked}">
-				${this.pattern.map((sym, i) => html`<div class="point" data-i="${i}">${sym}</div>`)}
-			</div>
-			<div class="palette" @click="${this._paletteClicked}">
-				${tools.map(([sym, desc]) => { return html`
-					<div data-sym="${sym}" class="${this.activeTool === sym ? 'active' : ''}">${desc}</div>
-				`})}
-			</div>
-		`;
-	}
-
-	private _boardClicked = (e: MouseEvent) => {
-		if (this.activeTool === '')
-			return;
-		const index = (e.target as HTMLDivElement).dataset['i'];
-		if (index === undefined)
-			return;
-		this.pattern[parseInt(index, 10)] = this.activeTool;
-		this.requestUpdate();
-	}
-
-	private _paletteClicked = (e: MouseEvent) => {
-		const sym = (e.target as HTMLDivElement).dataset['sym'];
-		if (sym === undefined)
-			return;
-		this.activeTool = sym;
-	}
-
-	static styles = [globalCSS, css`
-		:host {
-			display: flex;
-			justify-content: space-evenly;
-		}
-		.board {
-			display: grid;
-			grid-template: repeat(19, 30px) / repeat(19, 30px);
-			width: 570px;
-			background-color: #ebc98a;
-			cursor: crosshair;
-		}
-		.board > .point {
-			text-align: center;
-			line-height: 30px;
-			color: #111;
-		}
-		.palette {
-			width: 140px;
-			background-color: #666;
-		}
-		.palette > div {
-			cursor: pointer;
-		}
-		.palette > div.active {
-			background-color: #157;
-		}
-	`];
-}
