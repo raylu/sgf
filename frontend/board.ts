@@ -34,6 +34,8 @@ export class GoBoard extends LitElement {
 	activeTool: Tool = 'X';
 	@state()
 	lastPlayed: number | null = null;
+	@state()
+	filled: boolean[] = Array(19 * 19).fill(false);
 
 	protected render() {
 		return html`
@@ -43,11 +45,8 @@ export class GoBoard extends LitElement {
 					const col = i % 19 + 2;
 					let lastPlayed: TemplateResult | '' = '';
 					if (i === this.lastPlayed)
-						if (sym == 'X')
-							lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="#ccf" stroke-width="2"></circle>`;
-						else
-							lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="#037" stroke-width="2"></circle>`;
-					return html`<div class="point" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
+						lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="${sym == 'X' ? '#ccf' : '#037'}" stroke-width="2"></circle>`;
+					return html`<div class="point ${this.filled[i] ? 'filled' : ''}" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
 						${stones[sym] === null ? null : svg`<svg>${stones[sym]}${lastPlayed}</svg>`}
 					</div>`;
 				})}
@@ -93,7 +92,7 @@ export class GoBoard extends LitElement {
 			if (index === this.nextMove)
 				this.dispatchEvent(new CustomEvent('correct-guess', {bubbles: true, composed: true}));
 			else
-				console.log('wrong!');
+				this._wrongGuess(index);
 		}
 		this.requestUpdate();
 	};
@@ -140,6 +139,32 @@ export class GoBoard extends LitElement {
 		}
 	}
 
+	private _wrongGuess(index: number) {
+		const guessRow = Math.floor(index / 19);
+		const guessCol = index % 19;
+		const nextRow = Math.floor(this.nextMove! / 19);
+		const nextCol = this.nextMove! % 19;
+		const rowDiff = nextRow - guessRow;
+		const colDiff = nextCol - guessCol;
+		if (Math.abs(rowDiff) >= Math.abs(colDiff)) {
+			if (rowDiff > 0) // next move is below
+				this._fill(0, guessRow, 0, 18);
+			else // next move is above
+				this._fill(guessRow, 18, 0, 18);
+		} else {
+			if (colDiff > 0) // next move is right
+				this._fill(0, 18, 0, guessCol);
+			else
+				this._fill(0, 18, guessCol, 18);
+		}
+	}
+
+	private _fill(startRow: number, endRow: number, startCol: number, endCol: number) {
+		for (let row = startRow; row <= endRow; row++)
+			for (let col = startCol; col <= endCol; col++)
+				this.filled[row * 19 + col] = true;
+	}
+
 	static styles = [globalCSS, css`
 		:host {
 			display: flex;
@@ -155,6 +180,9 @@ export class GoBoard extends LitElement {
 		}
 		.board > .point {
 			z-index: 1;
+		}
+		.board > .point.filled {
+			background-color: #0009;
 		}
 		.board > .point > svg {
 			width: 30px;
