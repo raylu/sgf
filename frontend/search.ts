@@ -96,13 +96,9 @@ export class SGFSearch extends LitElement {
 		event.preventDefault();
 		history.pushState({}, '', (event.target as HTMLAnchorElement).href);
 		this.dispatchEvent(navigate);
-    }
+	}
 
 	static styles = [globalCSS, css`
-		a {
-			color: #58a;
-			text-decoration: none;
-		}
 		go-board {
 			margin: 1em auto;
 		}

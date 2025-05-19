@@ -4,7 +4,7 @@ import {customElement, property, state} from 'lit/decorators.js';
 // @ts-ignore
 import * as sgf from '@sabaki/sgf';
 
-import globalCSS, {tenukiCSS} from './style';
+import globalCSS from './style';
 import {GoBoard} from './board';
 
 function sgf_to_coords(move: string): [number, number] {
@@ -80,7 +80,7 @@ export class GameRecord extends LitElement {
 		this.moveNum = parseInt(numStr);
 	}
 
-	static styles = [globalCSS, tenukiCSS, css`
+	static styles = [globalCSS, css`
 		:host {
 			color: #eee;
 			font-family: sans-serif;

@@ -72,10 +72,6 @@ class SGFApp extends LitElement {
 			color: #eee;
 			font-family: sans-serif;
 		}
-		a {
-			color: #58a;
-			text-decoration: none;
-		}
 	`];
 }
 
