@@ -18,6 +18,8 @@ export class GameRecord extends LitElement {
 	path = '';
 	@property({type: Number})
 	moveNum: number | null = null;
+	@property()
+	mode: 'view' | 'guess' = 'view';
 
 	@state()
 	moves: object[] = [];
@@ -35,6 +37,7 @@ export class GameRecord extends LitElement {
 	protected createRenderRoot() {
 		const root = super.createRenderRoot();
 		root.addEventListener('click', this._moveClicked);
+		root.addEventListener('correct-guess', this._correctGuess);
 		return root;
 	}
 
@@ -51,7 +54,7 @@ export class GameRecord extends LitElement {
 
 	private _renderSGF = (node: any) => {
 		const goBoard = new GoBoard();
-		goBoard.mode = 'game_record';
+		goBoard.mode = this.mode;
 		goBoard.pattern = Array(19 * 19).fill('.');
 		const moves = [];
 
@@ -64,6 +67,9 @@ export class GameRecord extends LitElement {
 			if (this.moveNum === null || moveNum <= this.moveNum) {
 				const [row, col] = sgf_to_coords(move);
 				goBoard.play(row, col, player);
+			} else if (this.mode == 'guess' && moveNum === this.moveNum + 1) {
+				const [row, col] = sgf_to_coords(move);
+				goBoard.nextMove = row * 19 + col;
 			}
 			if (player === 'B')
 				player = 'W';
@@ -78,6 +84,10 @@ export class GameRecord extends LitElement {
 		const numStr = (e.target as HTMLDivElement).dataset['num'];
 		if (numStr === undefined) return;
 		this.moveNum = parseInt(numStr);
+	}
+
+	private _correctGuess = (_e: Event) => {
+		this.moveNum!++;
 	}
 
 	static styles = [globalCSS, css`

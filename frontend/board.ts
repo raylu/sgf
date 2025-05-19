@@ -24,9 +24,11 @@ const stones: Record<Tool, TemplateResult | null> = {
 @customElement('go-board')
 export class GoBoard extends LitElement {
 	@property()
-	mode: 'pattern' | 'game_record' | 'guess' = 'pattern';
+	mode: 'pattern' | 'view' | 'guess' = 'pattern';
 	@property({attribute: false})
 	pattern: Tool[] = Array(19 * 19).fill('*');
+	@property({type: Number})
+	nextMove: number | null = null;
 
 	@state()
 	activeTool: Tool = 'X';
@@ -75,17 +77,24 @@ export class GoBoard extends LitElement {
 	}
 
 	private _boardClicked = (e: MouseEvent) => {
-		if (this.mode == 'game_record')
+		if (this.mode == 'view')
 			return;
 		let target: HTMLElement | null = e.target as HTMLElement;
 		while (target.dataset['i'] === undefined) {
 			target = target.parentElement;
 			if (!target) return;
 		}
-		const index = target.dataset['i'];
-		if (index === undefined)
+		if (target.dataset['i'] === undefined)
 			return;
-		this.pattern[parseInt(index, 10)] = this.activeTool;
+		const index = parseInt(target.dataset['i'], 10);
+		if (this.mode == 'pattern')
+			this.pattern[index] = this.activeTool;
+		else if (this.mode == 'guess') {
+			if (index === this.nextMove)
+				this.dispatchEvent(new CustomEvent('correct-guess', {bubbles: true, composed: true}));
+			else
+				console.log('wrong!');
+		}
 		this.requestUpdate();
 	};
 
