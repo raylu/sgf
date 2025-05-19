@@ -13,24 +13,25 @@ const tools = {
 } as const;
 type Tool = keyof typeof tools;
 const stones: Record<Tool, TemplateResult | null> = {
-	'*': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#fff0" stroke="#aaa"></circle></svg>`,
+	'*': svg`<circle cx="15px" cy="15px" r="14px" fill="#fff0" stroke="#aaa"></circle>`,
 	'.': null,
-	'X': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#111" stroke="#aaa"></circle></svg>`,
-	'O': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#eee" stroke="#333"></circle></svg>`,
-	'x': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#1119" stroke="#07a"></circle></svg>`,
-	'o': svg`<svg><circle cx="15px" cy="15px" r="14px" fill="#eee9" stroke="#07a"></circle></svg>`,
+	'X': svg`<circle cx="15px" cy="15px" r="14px" fill="#111" stroke="#aaa"></circle>`,
+	'O': svg`<circle cx="15px" cy="15px" r="14px" fill="#eee" stroke="#333"></circle>`,
+	'x': svg`<circle cx="15px" cy="15px" r="14px" fill="#1119" stroke="#07a"></circle>`,
+	'o': svg`<circle cx="15px" cy="15px" r="14px" fill="#eee9" stroke="#07a"></circle>`,
 }
 
 @customElement('go-board')
 export class GoBoard extends LitElement {
 	@property()
 	mode: 'pattern' | 'game_record' | 'guess' = 'pattern';
-
 	@property({attribute: false})
 	pattern: Tool[] = Array(19 * 19).fill('*');
 
 	@state()
 	activeTool: Tool = 'X';
+	@state()
+	lastPlayed: number | null = null;
 
 	protected render() {
 		return html`
@@ -38,8 +39,14 @@ export class GoBoard extends LitElement {
 				${this.pattern.map((sym, i) => {
 					const row = Math.floor(i / 19) + 2;
 					const col = i % 19 + 2;
+					let lastPlayed: TemplateResult | '' = '';
+					if (i === this.lastPlayed)
+						if (sym == 'X')
+							lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="#ccf" stroke-width="2"></circle>`;
+						else
+							lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="#037" stroke-width="2"></circle>`;
 					return html`<div class="point" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
-						${stones[sym]}
+						${stones[sym] === null ? null : svg`<svg>${stones[sym]}${lastPlayed}</svg>`}
 					</div>`;
 				})}
 				${colLabels.split('').map((label, i) => html`
@@ -92,6 +99,7 @@ export class GoBoard extends LitElement {
 	play(row: number, col: number, color: 'B' | 'W') {
 		const index = row * 19 + col;
 		this.pattern[index] = color == 'B' ? 'X' : 'O';
+		this.lastPlayed = index;
 		// check for capture
 		const opponent = color == 'B' ? 'O' : 'X';
 		for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
