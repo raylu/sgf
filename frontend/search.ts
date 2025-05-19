@@ -43,17 +43,7 @@ export class SGFSearch extends LitElement {
 	protected render() {
 		const searchResults = this._searchTask.render({
 			pending: () => html`searching...`,
-			complete: (results) => html`
-				hits: ${results.num_hits.toLocaleString()}
-				${results.results.map(([path, result]) => {
-					return html`
-					<div>
-						${path}
-						${result.split(', ').map((continuation) =>
-							html`<a href="game/${path}?m=${continuation.match(/\d+/)![0]}" @click="${this._navigate}">${continuation}</a> `)}
-					</div>`;
-				})}
-			`,
+			complete: this._renderSearchResults,
 			error: (e) => html`${e}`
 		});
 		return html`
@@ -61,6 +51,21 @@ export class SGFSearch extends LitElement {
 			<div class="players">${this.player1Dropdown}${this.player2Dropdown}</div>
 			<button @click="${this._searchClicked}">search</button>
 			${searchResults}
+		`;
+	}
+
+	private _renderSearchResults = (results: SearchResults) => {
+		return html`
+			hits: ${results.num_hits.toLocaleString()}
+			${results.results.map(([path, result]) => {
+				return html`
+				<div>
+					${path}
+					${result.split(', ').map((continuation) =>
+						html`<a href="game/${path}?m=${continuation.match(/\d+/)![0]}" @click=${this._navigate}>${continuation}</a> `)}
+					<a href="game/${path}?guess=1" @click=${this._navigate}>[guess]</a>
+				</div>`;
+			})}
 		`;
 	}
 
@@ -92,7 +97,7 @@ export class SGFSearch extends LitElement {
 		});
 	}
 
-	private _navigate(event: Event) {
+	private _navigate = (event: Event) => {
 		event.preventDefault();
 		history.pushState({}, '', (event.target as HTMLAnchorElement).href);
 		this.dispatchEvent(navigate);

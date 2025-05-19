@@ -19,6 +19,8 @@ class SGFApp extends LitElement {
 	@state()
 	moveNum: number | null = null;
 	@state()
+	guess = false;
+	@state()
 	sgfSearch = new SGFSearch();
 
 	constructor() {
@@ -40,6 +42,10 @@ class SGFApp extends LitElement {
 			this.gamePath = location.pathname.substring(6);
 			if (location.search.startsWith('?m='))
 				this.moveNum = parseInt(location.search.substring(3));
+			else if (location.search == '?guess=1') {
+				this.guess = true;
+				this.moveNum = 4;
+			}
 		}
 	}
 
@@ -57,7 +63,7 @@ class SGFApp extends LitElement {
 		case Page.Game:
 			return html`
 				<a href="/" @click="${this._navigate}">back</a>
-				<game-record path="${this.gamePath}" moveNum="${this.moveNum}"></game-record>
+				<game-record path="${this.gamePath}" moveNum="${this.moveNum}" mode="${this.guess ? 'guess' : 'view'}"></game-record>
 			`;
 		}
 	}
