@@ -180,6 +180,7 @@ export class GoBoard extends LitElement {
 		}
 		.board > .point {
 			z-index: 1;
+			transition: background-color 0.2s;
 		}
 		.board > .point.filled {
 			background-color: #0009;
