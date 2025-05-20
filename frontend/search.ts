@@ -77,10 +77,12 @@ export class SGFSearch extends LitElement {
 				</div>`;
 			})}
 		`;
+		const sortedContinuations = Object.values(results.continuations)
+				.filter((cont) => cont.label != '?').sort((a, b) => b.total - a.total);
 		const continuations = html`<div class="continuations">
-			${results.continuations.map((continuation) =>
-				html`<div>${continuation.label}: ${continuation.total.toLocaleString()}</div>`)}
+			${sortedContinuations.map((cont) => html`<div>${cont.label}: ${cont.total.toLocaleString()}</div>`)}
 		</div>`;
+		this.goBoard.continuations = results.continuations;
 		return {games, continuations};
 	}
 
@@ -89,6 +91,7 @@ export class SGFSearch extends LitElement {
 		if (sym === undefined)
 			return;
 		this.goBoard.activeTool = sym as Tool;
+		this.requestUpdate();
 	};
 
 	private _playerSelected = (_event: Event) => {
@@ -129,6 +132,7 @@ export class SGFSearch extends LitElement {
 		section.top {
 			display: flex;
 			justify-content: space-evenly;
+			height: 630px;
 		}
 		section.top > section.right {
 			display: flex;
@@ -147,6 +151,8 @@ export class SGFSearch extends LitElement {
 			background-color: #157;
 		}
 		section.top > section.right > .continuations {
+			max-height: calc(630px - 140px);
+			overflow-y: auto;
 			padding: 6px 10px;
 			background-color: #222;
 		}
@@ -163,12 +169,12 @@ export class SGFSearch extends LitElement {
 interface SearchResults {
 	num_hits: number;
 	results: string[][];
-	continuations: Continuation[];
+	continuations: {[index: number]: Continuation};
 	black_wins: number;
 	white_wins: number;
 }
 
-interface Continuation {
+export interface Continuation {
 	label: string;
 	index: number;
 	total: number;

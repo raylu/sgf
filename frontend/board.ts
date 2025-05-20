@@ -1,6 +1,7 @@
 import {LitElement, html, css, svg, type TemplateResult} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 import globalCSS from './style';
+import type {Continuation} from './search';
 
 const colLabels = 'ABCDEFGHJKLMNOPQRST';
 export const tools = {
@@ -12,9 +13,9 @@ export const tools = {
 	'o': 'white or empty',
 } as const;
 export type Tool = keyof typeof tools;
-const stones: Record<Tool, TemplateResult | null> = {
-	'*': svg`<circle cx="15px" cy="15px" r="14px" fill="#fff0" stroke="#aaa"></circle>`,
-	'.': null,
+const stones: Record<Tool, TemplateResult | ''> = {
+	'*': svg`<circle cx="15px" cy="15px" r="14px" fill="#fff0" stroke="#bbb"></circle>`,
+	'.': '',
 	'X': svg`<circle cx="15px" cy="15px" r="14px" fill="#111" stroke="#aaa"></circle>`,
 	'O': svg`<circle cx="15px" cy="15px" r="14px" fill="#eee" stroke="#333"></circle>`,
 	'x': svg`<circle cx="15px" cy="15px" r="14px" fill="#1119" stroke="#07a"></circle>`,
@@ -31,6 +32,8 @@ export class GoBoard extends LitElement {
 	activeTool: Tool = 'X';
 	@property({type: Number})
 	nextMove: number | null = null;
+	@property({attribute: false})
+	continuations: {[index: number]: Continuation} = {};
 
 	@state()
 	lastPlayed: number | null = null;
@@ -44,10 +47,16 @@ export class GoBoard extends LitElement {
 					const row = Math.floor(i / 19) + 2;
 					const col = i % 19 + 2;
 					let lastPlayed: TemplateResult | '' = '';
+					let continuation: TemplateResult | '' = '';
 					if (i === this.lastPlayed)
 						lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="${sym == 'X' ? '#ccf' : '#037'}" stroke-width="2"></circle>`;
+					if (this.continuations[i] && this.continuations[i].label != '?')
+						continuation = svg`
+							<circle cx="15px" cy="15px" r="10px" fill="#ca7"></circle>
+							<text text-anchor="middle" dominant-baseline="middle" x="15" y="15">${this.continuations[i].label}</text>
+						`;
 					return html`<div class="point ${this.filled[i] ? 'filled' : ''}" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
-						${stones[sym] === null ? null : svg`<svg>${stones[sym]}${lastPlayed}</svg>`}
+						${svg`<svg>${continuation}${stones[sym]}${lastPlayed}</svg>`}
 					</div>`;
 				})}
 				${colLabels.split('').map((label, i) => html`
@@ -158,7 +167,7 @@ export class GoBoard extends LitElement {
 			grid-template: repeat(21, 30px) / repeat(21, 30px);
 			width: 630px;
 			color: #111;
-			background-color: #ebc98a;
+			background-color: #ca7;
 			position: relative; /* for .grid */
 		}
 		.board > .point {
@@ -171,6 +180,7 @@ export class GoBoard extends LitElement {
 		.board > .point > svg {
 			width: 30px;
 			height: 30px;
+			user-select: none;
 		}
 		.board > .coord {
 			text-align: center;

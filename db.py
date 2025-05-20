@@ -41,20 +41,19 @@ def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 		path, continuations = result.split('|', 1)
 		path = path.removeprefix('game_records/').removesuffix('.sgf')
 		results.append((path, continuations.removesuffix(', ')))
-	continuations = []
+	continuations = {}
 	for index, (label, cont) in enumerate(zip(gamelist.labels, gamelist.continuations)):
 		cont: kombilo.Continuation
 		assert (label == '.') ^ (cont.total() > 0)
 		if cont.total():
-			continuations.append(Continuation(label, index, cont.total()))
-	continuations.sort(reverse=True)
+			continuations[index] = Continuation(label, index, cont.total())
 	return SearchResult(gamelist.num_hits, results, continuations, gamelist.BwinsG, gamelist.WwinsG)
 
 @dataclasses.dataclass(eq=False, frozen=True, slots=True)
 class SearchResult:
 	num_hits: int
 	results: list[tuple[str, str]]
-	continuations: list[Continuation]
+	continuations: dict[int, Continuation]
 	black_wins: int
 	white_wins: int
 
