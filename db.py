@@ -35,21 +35,33 @@ def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 
 	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
 	gamelist.search(pattern)
-	# for cont in gamelist.continuations:
-	# 	cont: kombilo.Continuation
-	# 	print(cont.label, 'has', cont.total())
 	results = []
 	for i in range(min(gamelist.size(), 50)):
 		result: str = gamelist.currentEntryAsString(i)
 		path, continuations = result.split('|', 1)
 		path = path.removeprefix('game_records/').removesuffix('.sgf')
 		results.append((path, continuations.removesuffix(', ')))
-	return SearchResult(gamelist.num_hits, results)
+	continuations = []
+	for index, (label, cont) in enumerate(zip(gamelist.labels, gamelist.continuations)):
+		cont: kombilo.Continuation
+		assert (label == '.') ^ (cont.total() > 0)
+		if cont.total():
+			continuations.append(Continuation(label, index, cont.total()))
+	return SearchResult(gamelist.num_hits, results, continuations, gamelist.BwinsG, gamelist.WwinsG)
 
 @dataclasses.dataclass(eq=False, frozen=True, slots=True)
 class SearchResult:
 	num_hits: int
 	results: list[tuple[str, str]]
+	continuations: list
+	black_wins: int
+	white_wins: int
+
+@dataclasses.dataclass(eq=False, frozen=True, slots=True)
+class Continuation:
+	label: str
+	index: int
+	total: int
 
 def players() -> typing.Iterator[str]:
 	gamelist = get_gamelist()
