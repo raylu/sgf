@@ -41,28 +41,31 @@ export class SGFSearch extends LitElement {
 	}
 
 	protected render() {
-		const searchResults = this._searchTask.render({
-			pending: () => html`searching...`,
+		const {games, continuations} = this._searchTask.render({
+			pending: () => {return {games: html`searching...`, continuations: null};},
 			complete: this._renderSearchResults,
-			error: (e) => html`${e}`
-		});
+			error: (e) => {return {games: html`${e}`, continuations: null}},
+		})!;
 		return html`
 			<section class="top">
 				${this.goBoard}
-				<div class="palette" @click="${this._paletteClicked}">
-					${Object.entries(tools).map(([sym, desc]) =>
-						html`<div data-sym="${sym}" class="${this.goBoard.activeTool === sym ? 'active' : ''}">${desc}</div>`
-					)}
-				</div>
+				<section class="right">
+					<div class="palette" @click="${this._paletteClicked}">
+						${Object.entries(tools).map(([sym, desc]) =>
+							html`<div data-sym="${sym}" class="${this.goBoard.activeTool === sym ? 'active' : ''}">${desc}</div>`
+						)}
+					</div>
+					${continuations}
+				</section>
 			</section>
 			<div class="players">${this.player1Dropdown}${this.player2Dropdown}</div>
 			<button @click="${this._searchClicked}">search</button>
-			${searchResults}
+			${games}
 		`;
 	}
 
 	private _renderSearchResults = (results: SearchResults) => {
-		return html`
+		const games = html`
 			hits: ${results.num_hits.toLocaleString()}
 			${results.results.map(([path, result]) => {
 				return html`
@@ -74,6 +77,11 @@ export class SGFSearch extends LitElement {
 				</div>`;
 			})}
 		`;
+		const continuations = html`<div class="continuations">
+			${results.continuations.map((continuation) =>
+				html`<div>${continuation.label}: ${continuation.total.toLocaleString()}</div>`)}
+		</div>`;
+		return {games, continuations};
 	}
 
 	private _paletteClicked = (e: MouseEvent) => {
@@ -122,16 +130,25 @@ export class SGFSearch extends LitElement {
 			display: flex;
 			justify-content: space-evenly;
 		}
-		.palette {
+		section.top > section.right {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		section.top > section.right > .palette {
 			width: 140px;
 			padding: 6px 10px;
 			background-color: #666;
 		}
-		.palette > div {
+		section.top > section.right > .palette > div {
 			cursor: pointer;
 		}
-		.palette > div.active {
+		section.top > section.right > .palette > div.active {
 			background-color: #157;
+		}
+		section.top > section.right > .continuations {
+			padding: 6px 10px;
+			background-color: #222;
 		}
 		.players {
 			display: flex;
@@ -146,6 +163,13 @@ export class SGFSearch extends LitElement {
 interface SearchResults {
 	num_hits: number;
 	results: string[][];
+	continuations: Continuation[];
+	black_wins: number;
+	white_wins: number;
 }
 
-
+interface Continuation {
+	label: string;
+	index: number;
+	total: number;
+}
