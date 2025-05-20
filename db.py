@@ -47,13 +47,14 @@ def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 		assert (label == '.') ^ (cont.total() > 0)
 		if cont.total():
 			continuations.append(Continuation(label, index, cont.total()))
+	continuations.sort(reverse=True)
 	return SearchResult(gamelist.num_hits, results, continuations, gamelist.BwinsG, gamelist.WwinsG)
 
 @dataclasses.dataclass(eq=False, frozen=True, slots=True)
 class SearchResult:
 	num_hits: int
 	results: list[tuple[str, str]]
-	continuations: list
+	continuations: list[Continuation]
 	black_wins: int
 	white_wins: int
 
@@ -62,6 +63,8 @@ class Continuation:
 	label: str
 	index: int
 	total: int
+	def __lt__(self, other: Continuation) -> bool:
+		return self.total < other.total
 
 def players() -> typing.Iterator[str]:
 	gamelist = get_gamelist()

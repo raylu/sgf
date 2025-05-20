@@ -4,7 +4,7 @@ import {customElement, property, state} from 'lit/decorators.js';
 
 import {LitDropdown, setupClose, type Option} from './dropdown';
 import globalCSS from './style';
-import {GoBoard} from './board';
+import {GoBoard, tools, type Tool} from './board';
 
 const navigate = new Event('navigate', {composed: true});
 
@@ -47,7 +47,14 @@ export class SGFSearch extends LitElement {
 			error: (e) => html`${e}`
 		});
 		return html`
-			${this.goBoard}
+			<section class="top">
+				${this.goBoard}
+				<div class="palette" @click="${this._paletteClicked}">
+					${Object.entries(tools).map(([sym, desc]) =>
+						html`<div data-sym="${sym}" class="${this.goBoard.activeTool === sym ? 'active' : ''}">${desc}</div>`
+					)}
+				</div>
+			</section>
 			<div class="players">${this.player1Dropdown}${this.player2Dropdown}</div>
 			<button @click="${this._searchClicked}">search</button>
 			${searchResults}
@@ -68,6 +75,13 @@ export class SGFSearch extends LitElement {
 			})}
 		`;
 	}
+
+	private _paletteClicked = (e: MouseEvent) => {
+		const sym = (e.target as HTMLDivElement).dataset['sym'];
+		if (sym === undefined)
+			return;
+		this.goBoard.activeTool = sym as Tool;
+	};
 
 	private _playerSelected = (_event: Event) => {
 		this.player1 = this.player1Dropdown.selected.id;
@@ -104,8 +118,20 @@ export class SGFSearch extends LitElement {
 	}
 
 	static styles = [globalCSS, css`
-		go-board {
-			margin: 1em auto;
+		section.top {
+			display: flex;
+			justify-content: space-evenly;
+		}
+		.palette {
+			width: 140px;
+			padding: 6px 10px;
+			background-color: #666;
+		}
+		.palette > div {
+			cursor: pointer;
+		}
+		.palette > div.active {
+			background-color: #157;
 		}
 		.players {
 			display: flex;
