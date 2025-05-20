@@ -15,7 +15,7 @@ def get_gamelist() -> kombilo.GameList:
 	opts.professional_tag = 2 # tag if 1p-9p
 	return kombilo.GameList('game_records/kombilo.db', '', '[[path]]/[[filename]]|', opts)
 
-def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
+def search(pattern_str: str, player1: str, player2: str, page: int) -> SearchResult:
 	gamelist = get_gamelist()
 
 	where = []
@@ -36,7 +36,7 @@ def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 	pattern = kombilo.Pattern(kombilo.FULLBOARD_PATTERN, 19, 19, 19, pattern_str)
 	gamelist.search(pattern)
 	results = []
-	for i in range(min(gamelist.size(), 50)):
+	for i in range((page-1) * 50, min(gamelist.size(), page * 50)):
 		result: str = gamelist.currentEntryAsString(i)
 		path, continuations = result.split('|', 1)
 		path = path.removeprefix('game_records/').removesuffix('.sgf')
@@ -47,11 +47,12 @@ def search(pattern_str: str, player1: str, player2: str) -> SearchResult:
 		assert (label == '.') ^ (cont.total() > 0)
 		if cont.total():
 			continuations[index] = Continuation(label, index, cont.total())
-	return SearchResult(gamelist.num_hits, results, continuations, gamelist.BwinsG, gamelist.WwinsG)
+	return SearchResult(gamelist.num_hits, gamelist.size(), results, continuations, gamelist.BwinsG, gamelist.WwinsG)
 
 @dataclasses.dataclass(eq=False, frozen=True, slots=True)
 class SearchResult:
 	num_hits: int
+	num_games: int
 	results: list[tuple[str, str]]
 	continuations: dict[int, Continuation]
 	black_wins: int

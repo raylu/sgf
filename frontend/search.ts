@@ -23,6 +23,8 @@ export class SGFSearch extends LitElement {
 	goBoard = new GoBoard();
 	@state()
 	searchPattern = this.goBoard.pattern.join('');
+	@state()
+	page = 1;
 
 	connectedCallback(): void {
 		super.connectedCallback();
@@ -66,7 +68,7 @@ export class SGFSearch extends LitElement {
 
 	private _renderSearchResults = (results: SearchResults) => {
 		const games = html`
-			hits: ${results.num_hits.toLocaleString()}
+			hits: ${results.num_hits.toLocaleString()} in ${results.num_games.toLocaleString()} games
 			${results.results.map(([path, result]) => {
 				return html`
 				<div>
@@ -74,8 +76,13 @@ export class SGFSearch extends LitElement {
 					${result.split(', ').map((continuation) =>
 						html`<a href="game/${path}?m=${continuation.match(/\d+/)![0]}" @click=${this._navigate}>${continuation}</a> `)}
 					<a href="game/${path}?guess=1" @click=${this._navigate}>[guess]</a>
-				</div>`;
+				</div>
+				`;
 			})}
+			<div class="pagination">
+				page: ${Array.from({length: Math.ceil(results.num_games / 50)}, (_, i) => html`
+					<a href="#" @click=${this._pageClicked} data-page=${i+1} class="${i+1 === this.page ? 'active' : ''}">${i+1}</a>`)}
+			</div>
 		`;
 		const sortedContinuations = Object.values(results.continuations)
 				.filter((cont) => cont.label != '?').sort((a, b) => b.total - a.total);
@@ -97,16 +104,18 @@ export class SGFSearch extends LitElement {
 	private _playerSelected = (_event: Event) => {
 		this.player1 = this.player1Dropdown.selected.id;
 		this.player2 = this.player2Dropdown.selected.id;
+		this.page = 1;
 	}
 
-	private _searchClicked = async () => {
+	private _searchClicked = () => {
 		this.searchPattern = this.goBoard.pattern.join('');
+		this.page = 1;
 	}
 
 	private _searchTask = new Task(this, {
-		args: () => [this.searchPattern, this.player1, this.player2] as const,
-		task: async ([pattern, player1, player2], {signal}): Promise<SearchResults> => {
-			const results = await this._post_json('/api/search', {pattern, player1, player2}, signal);
+		args: () => [this.searchPattern, this.player1, this.player2, this.page] as const,
+		task: async ([pattern, player1, player2, page], {signal}): Promise<SearchResults> => {
+			const results = await this._post_json('/api/search', {pattern, player1, player2, page}, signal);
 			if (results.status !== 200)
 				throw new Error(`${results.status} ${results.statusText}`);
 			return results.json();
@@ -126,6 +135,11 @@ export class SGFSearch extends LitElement {
 		event.preventDefault();
 		history.pushState({}, '', (event.target as HTMLAnchorElement).href);
 		this.dispatchEvent(navigate);
+	}
+
+	private _pageClicked = (event: Event) => {
+		event.preventDefault();
+		this.page = parseInt((event.target as HTMLAnchorElement).dataset['page']!, 10);
 	}
 
 	static styles = [globalCSS, css`
@@ -163,11 +177,19 @@ export class SGFSearch extends LitElement {
 		.players > lit-dropdown {
 			margin-right: 20px;
 		}
+		.pagination {
+			margin: 1.5em 0;
+		}
+		.pagination > a.active {
+			font-weight: bold;
+			text-decoration: underline;
+		}
 	`];
 }
 
 interface SearchResults {
 	num_hits: number;
+	num_games: number;
 	results: string[][];
 	continuations: {[index: number]: Continuation};
 	black_wins: number;

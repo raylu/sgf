@@ -23,7 +23,8 @@ def players(request: Request) -> Response:
 	return Response.json(list(db.players()))
 
 def search_route(request: Request) -> Response:
-	return Response.json(dataclasses.asdict(db.search(request.body['pattern'], request.body['player1'], request.body['player2'])))
+	result = db.search(request.body['pattern'], request.body['player1'], request.body['player2'], request.body['page'])
+	return Response.json(dataclasses.asdict(result))
 
 def sgf(request: Request, file_path: str) -> Response:
 	try:
