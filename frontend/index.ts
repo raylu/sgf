@@ -71,11 +71,17 @@ class SGFApp extends LitElement {
 	static styles = [globalCSS, css`
 		:host {
 			display: block;
-			width: 900px;
+			min-width: 630px;
+			max-width: 900px;
 			margin: 0 auto;
 			padding: 20px;
 			background-color: #111;
 			color: #eee;
+		}
+		@media (max-width: 900px) {
+			:host {
+				padding: 0;
+			}
 		}
 	`];
 }

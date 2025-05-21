@@ -95,11 +95,15 @@ export class GameRecord extends LitElement {
 			color: #eee;
 		}
 		go-board {
+			display: block;
+			width: 630px;
 			margin: 1em auto;
 		}
 		.moves {
-			background-color: #666;
+			margin: 0 auto;
+			width: 676px;
 			padding: 1em;
+			background-color: #666;
 		}
 		.moves > div {
 			display: inline-block;
