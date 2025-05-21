@@ -93,7 +93,6 @@ export class GameRecord extends LitElement {
 	static styles = [globalCSS, css`
 		:host {
 			color: #eee;
-			font-family: sans-serif;
 		}
 		go-board {
 			margin: 1em auto;

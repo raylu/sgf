@@ -57,7 +57,7 @@ export class GoBoard extends LitElement {
 							<circle cx="15px" cy="15px" r="10px" fill="#ca7"></circle>
 							<text text-anchor="middle" dominant-baseline="middle" x="15" y="16"
 								fill="hsl(219 ${percentage * 50 + 25}% 42%)" font-size="${percentage * 8 + 12}px"
-								font-weight="${percentage * 750}">${this.continuations[i].label}</text>
+								font-weight="${percentage * 300 + 400}">${this.continuations[i].label}</text>
 						`;
 					}
 					return html`<div class="point ${this.filled[i] ? 'filled' : ''}" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
