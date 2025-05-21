@@ -41,6 +41,7 @@ export class GoBoard extends LitElement {
 	filled: boolean[] = Array(19 * 19).fill(false);
 
 	protected render() {
+		const maxContinuations = Math.max(...Object.values(this.continuations).map((c) => c.total));
 		return html`
 			<div class="board" @click="${this._boardClicked}">
 				${this.pattern.map((sym, i) => {
@@ -50,11 +51,15 @@ export class GoBoard extends LitElement {
 					let continuation: TemplateResult | '' = '';
 					if (i === this.lastPlayed)
 						lastPlayed = svg`<circle cx="15px" cy="15px" r="8px" fill="none" stroke="${sym == 'X' ? '#ccf' : '#037'}" stroke-width="2"></circle>`;
-					if (this.continuations[i] && this.continuations[i].label != '?')
+					if (this.continuations[i] && this.continuations[i].label != '?') {
+						const percentage = this.continuations[i].total / maxContinuations
 						continuation = svg`
 							<circle cx="15px" cy="15px" r="10px" fill="#ca7"></circle>
-							<text text-anchor="middle" dominant-baseline="middle" x="15" y="15">${this.continuations[i].label}</text>
+							<text text-anchor="middle" dominant-baseline="middle" x="15" y="16"
+								fill="hsl(219 ${percentage * 50 + 25}% 42%)" font-size="${percentage * 8 + 12}px"
+								font-weight="${percentage * 750}">${this.continuations[i].label}</text>
 						`;
+					}
 					return html`<div class="point ${this.filled[i] ? 'filled' : ''}" data-i="${i}" style="grid-row: ${row}; grid-column: ${col}">
 						${svg`<svg>${continuation}${stones[sym]}${lastPlayed}</svg>`}
 					</div>`;
